@@ -54,7 +54,7 @@ jobs:
           gh release create "$TAG" \
             release/yanxu-ui-0.1.0-six-targets.tar.gz \
             release/yanxu-ui-0.1.0-six-targets.sha256 \
-            release/言序.toml \
+            release/yanxu-ui-0.1.0.toml \
             release/api-v1.json \
             --verify-tag --title "言界 0.1.0" \
             --notes-file docs/RELEASE_NOTES_0.1.0.md
