@@ -181,9 +181,9 @@ jobs:
           )
           stage="$RUNNER_TEMP/yanxu-ui-0.1.0"
           mkdir -p "$stage/locks"
-          cp -R src api docs examples integration tests scripts "$stage/"
+          cp -R .github src api docs examples integration tests scripts "$stage/"
           cp 言序.toml 言序.lock README.md CHANGELOG.md COMPATIBILITY.md \
-            SECURITY.md THIRD_PARTY.md LICENSE-MIT LICENSE-APACHE "$stage/"
+            SECURITY.md THIRD_PARTY.md LICENSE-MIT LICENSE-APACHE .gitignore "$stage/"
           for target in "${targets[@]}"; do
             candidate="$RUNNER_TEMP/candidates/yanxu-ui-$target"
             test -f "$candidate/root/言序.lock"
@@ -191,10 +191,10 @@ jobs:
             test "$(find "$candidate/build" -type f -name '*.yxb' | wc -l)" -eq 12
             grep -F "target = \"$target\"" "$candidate/root/言序.lock"
             mkdir -p "$stage/locks/$target/examples"
-            mkdir -p "$stage/artifacts/$target"
+            mkdir -p "$stage/build/targets/$target"
             cp "$candidate/root/言序.lock" "$stage/locks/$target/言序.lock"
             cp "$candidate/examples/言序.lock" "$stage/locks/$target/examples/言序.lock"
-            cp "$candidate/build/自动关闭冒烟.yxb" "$stage/artifacts/$target/"
+            cp "$candidate/build/自动关闭冒烟.yxb" "$stage/build/targets/$target/"
           done
           archive="$GITHUB_WORKSPACE/yanxu-ui-0.1.0-six-targets.tar.gz"
           tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner \
