@@ -44,13 +44,13 @@ jobs:
           sudo apt-get -o Acquire::Retries=5 -o Acquire::ForceIPv4=true install -y \
             libfontconfig1 libwayland-client0 libxkbcommon0 libxkbcommon-x11-0 \
             libx11-6 xvfb
-      - name: 检出言序 1.1.7 工具链
+      - name: 检出言序 1.1.8 工具链
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           repository: YanXuLang/yanxu
           path: target/yanxu-core
-          ref: v1.1.7
-      - name: 构建言序 1.1.7
+          ref: v1.1.8
+      - name: 构建言序 1.1.8
         run: cargo build --manifest-path target/yanxu-core/Cargo.toml --locked --bin yanxu
       - name: 核对原生架构
         shell: bash
