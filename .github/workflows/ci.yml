@@ -73,7 +73,11 @@ jobs:
           suffix=""; if [[ "$RUNNER_OS" == "Windows" ]]; then suffix=".exe"; fi
           core="$GITHUB_WORKSPACE/yanxu-core/target/debug/yanxu$suffix"
           find src tests integration examples -type f -name '*.yx' -print0 | \
-            while IFS= read -r -d '' file; do "$core" 查 "$file"; done
+            while IFS= read -r -d '' file; do
+              "$core" 格 "$file" > "$RUNNER_TEMP/formatted.yx"
+              cmp "$file" "$RUNNER_TEMP/formatted.yx"
+              "$core" 查 "$file"
+            done
       - name: 单元测试与无窗口集成
         shell: bash
         run: |
