@@ -1,0 +1,5 @@
+/.yanxu/
+/build/
+/dist/
+*.tmp
+.DS_Store
