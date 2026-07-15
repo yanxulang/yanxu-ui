@@ -132,7 +132,16 @@ jobs:
           mkdir -p "$candidate/root" "$candidate/examples" "$candidate/build"
           cp 言序.lock "$candidate/root/言序.lock"
           cp examples/言序.lock "$candidate/examples/言序.lock"
-          cp "$RUNNER_TEMP"/build/*.yxb "$candidate/build/"
+          cp "$RUNNER_TEMP/build/自动关闭冒烟.yxb" "$candidate/build/"
+          for file in "$RUNNER_TEMP"/build/*.yxb; do
+            if command -v sha256sum >/dev/null 2>&1; then
+              checksum=$(sha256sum "$file" | awk '{print $1}')
+            else
+              checksum=$(shasum -a 256 "$file" | awk '{print $1}')
+            fi
+            printf '%s  %s\n' "$checksum" "$(basename "$file")"
+          done > "$candidate/build/SHA256SUMS"
+          test "$(wc -l < "$candidate/build/SHA256SUMS" | tr -d ' ')" -eq 12
           grep -F "target = \"$TARGET\"" "$candidate/root/言序.lock"
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
@@ -188,7 +197,8 @@ jobs:
             candidate="$RUNNER_TEMP/candidates/yanxu-ui-$target"
             test -f "$candidate/root/言序.lock"
             test -f "$candidate/examples/言序.lock"
-            test "$(find "$candidate/build" -type f -name '*.yxb' | wc -l)" -eq 12
+            test -f "$candidate/build/自动关闭冒烟.yxb"
+            test "$(wc -l < "$candidate/build/SHA256SUMS" | tr -d ' ')" -eq 12
             grep -F "target = \"$target\"" "$candidate/root/言序.lock"
             mkdir -p "$stage/locks/$target/examples"
             mkdir -p "$stage/build/targets/$target"
