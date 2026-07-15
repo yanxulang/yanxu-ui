@@ -167,7 +167,8 @@ jobs:
           done
           test "$(grep -c '^言台 = .*修订 = "v0.1.0"' 言序.toml)" -eq 1
           grep -E '^言据 = .*修订 = "[0-9a-f]{40}"' 言序.toml >/dev/null
-          if grep -RIni --exclude-dir=.git --exclude-dir=.yanxu --exclude='言序.lock' 'codex' .; then exit 1; fi
+          blocked="$(printf 'co%s' 'dex')"
+          if grep -RIni --exclude-dir=.git --exclude-dir=.yanxu --exclude='言序.lock' "$blocked" .; then exit 1; fi
 
   assemble:
     name: 汇总六目标正式包候选
