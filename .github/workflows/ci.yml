@@ -192,7 +192,8 @@ jobs:
           mkdir -p "$stage/locks"
           cp -R .github src api docs examples integration tests scripts "$stage/"
           cp 言序.toml 言序.lock README.md CHANGELOG.md COMPATIBILITY.md \
-            SECURITY.md THIRD_PARTY.md LICENSE-MIT LICENSE-APACHE .gitignore "$stage/"
+            SECURITY.md THIRD_PARTY.md LICENSE-MIT LICENSE-APACHE \
+            .gitattributes .gitignore "$stage/"
           for target in "${targets[@]}"; do
             candidate="$RUNNER_TEMP/candidates/yanxu-ui-$target"
             test -f "$candidate/root/言序.lock"
