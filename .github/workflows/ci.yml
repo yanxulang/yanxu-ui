@@ -211,7 +211,8 @@ jobs:
             cp "$candidate/root/言序.lock" "$stage/locks/$target/言序.lock"
             cp "$candidate/examples/言序.lock" "$stage/locks/$target/examples/言序.lock"
             cp "$candidate/build/自动关闭冒烟.yxb" "$stage/build/targets/$target/"
-            grep '  自动关闭冒烟.yxb$' "$candidate/build/SHA256SUMS" \
+            checksum=$(sha256sum < "$stage/build/targets/$target/自动关闭冒烟.yxb" | awk '{print $1}')
+            printf '%s  %s\n' "$checksum" '自动关闭冒烟.yxb' \
               > "$stage/build/targets/$target/自动关闭冒烟.yxb.sha256"
           done
           archive="$GITHUB_WORKSPACE/yanxu-ui-0.1.0-six-targets.tar.gz"
@@ -220,6 +221,7 @@ jobs:
           checksum=$(sha256sum "$archive" | awk '{print $1}')
           printf '%s  %s\n' "$checksum" "$(basename "$archive")" \
             > yanxu-ui-0.1.0-six-targets.sha256
+          cp 言序.toml yanxu-ui-0.1.0.toml
           cp api/api-v1.json api-v1.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
@@ -227,6 +229,6 @@ jobs:
           path: |
             yanxu-ui-0.1.0-six-targets.tar.gz
             yanxu-ui-0.1.0-six-targets.sha256
-            言序.toml
+            yanxu-ui-0.1.0.toml
             api-v1.json
           if-no-files-found: error

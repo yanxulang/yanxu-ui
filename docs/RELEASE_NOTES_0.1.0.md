@@ -53,8 +53,9 @@ Linux 提供统一原生窗口、事件、文字与 CPU 二维绘制。它与既
 
 ## 制品与校验
 
-Release 附带`yanxu-ui-0.1.0-six-targets.tar.gz`、同名`.sha256`、完整包清单和 API JSON
-快照。归档含六目标锁文件和每个目标实际构建的自动退出原生窗口示例 YXB；下载后可运行
+Release 附带`yanxu-ui-0.1.0-six-targets.tar.gz`、同名`.sha256`、
+`yanxu-ui-0.1.0.toml`完整包清单和 API JSON 快照。归档含六目标锁文件和每个目标实际构建的
+自动退出原生窗口示例 YXB；下载后可运行
 `sha256sum --check`复核。言台原生动态库及各自 SHA-256 位于言台 0.1.0 Release 和锁文件中。
 
 ## 第三方依赖
