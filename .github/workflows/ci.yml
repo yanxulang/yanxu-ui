@@ -66,6 +66,10 @@ jobs:
           core="$GITHUB_WORKSPACE/target/yanxu-core/target/debug/yanxu$suffix"
           "$core" 包 更新 .
           "$core" 包 更新 examples
+          if [[ "$RUNNER_OS" == "Windows" ]]; then
+            cache_win=$(cygpath -w "$HOME/.yanxu/缓存")
+            printf 'YANXU_CACHE=\\\\?\\%s\n' "$cache_win" >> "$GITHUB_ENV"
+          fi
       - name: 静态检查全部源码测试与示例
         shell: bash
         run: |
