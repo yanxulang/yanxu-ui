@@ -1,0 +1,29 @@
+[包]
+格式 = 2
+名称 = "yanxu-ui"
+版本 = "0.1.0"
+言序 = ">=1.1.8"
+入口 = "src/主.yx"
+说明 = "以言序实现的跨平台保留模式 GUI 控件库"
+许可 = "MIT OR Apache-2.0"
+
+[依赖]
+言台 = { 包 = "yanxu-platform", git = "https://github.com/yanxulang/yanxu-platform.git", 修订 = "v0.1.0", 版 = "^0.1" }
+言据 = { 包 = "言据", git = "https://github.com/yanxulang/yanju.git", 修订 = "765d9dd623db901a3e71aa4759dbcd77563cb3a9", 版 = "^1.1" }
+
+[导出]
+默认 = "src/主.yx"
+几何 = "src/核心/几何.yx"
+脏区 = "src/核心/脏区.yx"
+文本 = "src/文本/文档.yx"
+配置 = "src/样式/配置.yx"
+错误 = "src/核心/错误.yx"
+
+[权限]
+图形界面 = true
+原生扩展 = true
+剪贴板 = true
+文件对话框 = true
+
+[构建]
+目标 = "字节码"

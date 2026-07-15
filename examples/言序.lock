@@ -1,0 +1,70 @@
+lock_version = 2
+manifest_checksum = "3584066b1f30eb74c489da7ab7a037d33db213bd8637e5cbde0d2030d4ad8b89"
+target = "aarch64-apple-darwin"
+generator = "1.1.8"
+
+[root_dependencies]
+"言界" = "yanxu-ui@0.1.0#a5b4b144f221-99284e04a96b47cd"
+
+[root_dev_dependencies]
+
+[[package]]
+id = "yanxu-platform@0.1.0#d95caa6bf952-93c96bdb2e39ad2a"
+name = "yanxu-platform"
+version = "0.1.0"
+source = "git:https://github.com/yanxulang/yanxu-platform.git"
+revision = "c9aac937942cf81bfdfb285f6b50afcb56a49a86"
+checksum = "93c96bdb2e39ad2a8bf740dc24bb71082a232dc44885e5a9f07c05dea38b5e24"
+entry = "src/主.yx"
+target = "aarch64-apple-darwin"
+minimum_yanxu = ">=1.1.7"
+
+[package.dependencies]
+
+[package.exports]
+"默认" = "src/主.yx"
+
+[package.native]
+abi = 2
+target = "aarch64-apple-darwin"
+path = "dist/aarch64-apple-darwin/libyanxu_platform_native.dylib"
+checksum = "ad91b0a85a9f39926dc2b2127a648b29eaff2e4b3521be893f7c11ec7ffc3c9c"
+size = 4670368
+
+[[package]]
+id = "yanxu-ui@0.1.0#a5b4b144f221-99284e04a96b47cd"
+name = "yanxu-ui"
+version = "0.1.0"
+source = "path:.."
+checksum = "99284e04a96b47cd584689c1d959c6d427d4a9b816385acc7d85ec63490542fd"
+entry = "src/主.yx"
+target = "aarch64-apple-darwin"
+minimum_yanxu = ">=1.1.8"
+
+[package.dependencies]
+"言台" = "yanxu-platform@0.1.0#d95caa6bf952-93c96bdb2e39ad2a"
+"言据" = "言据@1.1.2#9f376cc5bbdb-224c315783494338"
+
+[package.exports]
+"几何" = "src/核心/几何.yx"
+"文本" = "src/文本/文档.yx"
+"脏区" = "src/核心/脏区.yx"
+"配置" = "src/样式/配置.yx"
+"错误" = "src/核心/错误.yx"
+"默认" = "src/主.yx"
+
+[[package]]
+id = "言据@1.1.2#9f376cc5bbdb-224c315783494338"
+name = "言据"
+version = "1.1.2"
+source = "git:https://github.com/yanxulang/yanju.git"
+revision = "765d9dd623db901a3e71aa4759dbcd77563cb3a9"
+checksum = "224c31578349433870be11aa599edd1072b9651e0d659819f4ab9a971064a5c0"
+entry = "src/言据.yx"
+target = "aarch64-apple-darwin"
+minimum_yanxu = ">=1.1.6"
+
+[package.dependencies]
+
+[package.exports]
+"默认" = "src/言据.yx"
