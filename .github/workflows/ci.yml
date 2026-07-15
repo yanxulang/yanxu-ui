@@ -206,6 +206,8 @@ jobs:
             cp "$candidate/root/言序.lock" "$stage/locks/$target/言序.lock"
             cp "$candidate/examples/言序.lock" "$stage/locks/$target/examples/言序.lock"
             cp "$candidate/build/自动关闭冒烟.yxb" "$stage/build/targets/$target/"
+            grep '  自动关闭冒烟.yxb$' "$candidate/build/SHA256SUMS" \
+              > "$stage/build/targets/$target/自动关闭冒烟.yxb.sha256"
           done
           archive="$GITHUB_WORKSPACE/yanxu-ui-0.1.0-six-targets.tar.gz"
           tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner \
