@@ -8,8 +8,8 @@
 许可 = "MIT OR Apache-2.0"
 
 [依赖]
-言台 = { 包 = "yanxu-platform", 路径 = "../yanxu-platform", 版 = "^0.1" }
-言据 = { 包 = "言据", 路径 = "../yanju", 版 = "^1.1" }
+言台 = { 包 = "yanxu-platform", git = "https://github.com/yanxulang/yanxu-platform.git", 修订 = "v0.1.0", 版 = "^0.1" }
+言据 = { 包 = "言据", git = "https://github.com/yanxulang/yanju.git", 修订 = "765d9dd623db901a3e71aa4759dbcd77563cb3a9", 版 = "^1.1" }
 
 [导出]
 默认 = "src/主.yx"

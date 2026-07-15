@@ -1,0 +1,49 @@
+lock_version = 2
+manifest_checksum = "5b95a0dde71aa5ec37631f45f023a2078b932540b16093ba89135f093fb62c69"
+target = "aarch64-apple-darwin"
+generator = "1.1.7"
+
+[root_dependencies]
+"言台" = "yanxu-platform@0.1.0#d95caa6bf952-93c96bdb2e39ad2a"
+"言据" = "言据@1.1.2#9f376cc5bbdb-224c315783494338"
+
+[root_dev_dependencies]
+
+[[package]]
+id = "yanxu-platform@0.1.0#d95caa6bf952-93c96bdb2e39ad2a"
+name = "yanxu-platform"
+version = "0.1.0"
+source = "git:https://github.com/yanxulang/yanxu-platform.git"
+revision = "c9aac937942cf81bfdfb285f6b50afcb56a49a86"
+checksum = "93c96bdb2e39ad2a8bf740dc24bb71082a232dc44885e5a9f07c05dea38b5e24"
+entry = "src/主.yx"
+target = "aarch64-apple-darwin"
+minimum_yanxu = ">=1.1.7"
+
+[package.dependencies]
+
+[package.exports]
+"默认" = "src/主.yx"
+
+[package.native]
+abi = 2
+target = "aarch64-apple-darwin"
+path = "dist/aarch64-apple-darwin/libyanxu_platform_native.dylib"
+checksum = "ad91b0a85a9f39926dc2b2127a648b29eaff2e4b3521be893f7c11ec7ffc3c9c"
+size = 4670368
+
+[[package]]
+id = "言据@1.1.2#9f376cc5bbdb-224c315783494338"
+name = "言据"
+version = "1.1.2"
+source = "git:https://github.com/yanxulang/yanju.git"
+revision = "765d9dd623db901a3e71aa4759dbcd77563cb3a9"
+checksum = "224c31578349433870be11aa599edd1072b9651e0d659819f4ab9a971064a5c0"
+entry = "src/言据.yx"
+target = "aarch64-apple-darwin"
+minimum_yanxu = ">=1.1.6"
+
+[package.dependencies]
+
+[package.exports]
+"默认" = "src/言据.yx"
