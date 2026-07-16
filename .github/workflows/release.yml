@@ -42,8 +42,8 @@ jobs:
         shell: bash
         run: |
           gh run download "$CI_RUN_ID" --name yanxu-ui-six-targets --dir release
-          expected=$(awk '{print $1}' release/yanxu-ui-0.1.0-six-targets.sha256)
-          actual=$(sha256sum release/yanxu-ui-0.1.0-six-targets.tar.gz | awk '{print $1}')
+          expected=$(awk '{print $1}' release/yanxu-ui-0.1.1-six-targets.sha256)
+          actual=$(sha256sum release/yanxu-ui-0.1.1-six-targets.tar.gz | awk '{print $1}')
           test "$expected" = "$actual"
       - name: 发布 GitHub Release
         env:
@@ -52,9 +52,9 @@ jobs:
         shell: bash
         run: |
           gh release create "$TAG" \
-            release/yanxu-ui-0.1.0-six-targets.tar.gz \
-            release/yanxu-ui-0.1.0-six-targets.sha256 \
-            release/yanxu-ui-0.1.0.toml \
+            release/yanxu-ui-0.1.1-six-targets.tar.gz \
+            release/yanxu-ui-0.1.1-six-targets.sha256 \
+            release/yanxu-ui-0.1.1.toml \
             release/api-v1.json \
-            --verify-tag --title "言界 0.1.0" \
-            --notes-file docs/RELEASE_NOTES_0.1.0.md
+            --verify-tag --title "言界 0.1.1" \
+            --notes-file docs/RELEASE_NOTES_0.1.1.md
