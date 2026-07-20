@@ -153,6 +153,44 @@ jobs:
           path: ${{ runner.temp }}/candidate
           if-no-files-found: error
 
+  current-toolchain:
+    name: 当前言序兼容
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: 安装 Linux 窗口运行依赖
+        run: |
+          set -euo pipefail
+          sudo apt-get -o Acquire::Retries=5 -o Acquire::ForceIPv4=true update
+          sudo apt-get -o Acquire::Retries=5 -o Acquire::ForceIPv4=true install -y \
+            libfontconfig1 libwayland-client0 libxkbcommon0 libxkbcommon-x11-0 \
+            libx11-6
+      - name: 检出当前言序工具链
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          repository: YanXuLang/yanxu
+          path: target/yanxu-current
+          ref: v1.1.20
+      - name: 构建当前言序工具链
+        run: cargo build --manifest-path target/yanxu-current/Cargo.toml --locked --bin yanxu
+      - name: 验证当前工具链的源码、测试与构建
+        shell: bash
+        run: |
+          set -euo pipefail
+          core="$GITHUB_WORKSPACE/target/yanxu-current/target/debug/yanxu"
+          "$core" 包 更新 .
+          "$core" 包 更新 examples
+          find src tests integration examples -type f -name '*.yx' -print0 | \
+            while IFS= read -r -d '' file; do
+              "$core" 查 "$file"
+            done
+          "$core" 试 tests
+          "$core" 字节 integration/控件树集成.yx
+          "$core" 字节 integration/渲染命令.yx
+          "$core" 字节 integration/高级控件.yx
+          "$core" 编 . --release -o "$RUNNER_TEMP/yanxu-ui.yxb"
+          test -s "$RUNNER_TEMP/yanxu-ui.yxb"
+
   policy:
     name: 包边界、安全与许可
     runs-on: ubuntu-24.04
@@ -176,7 +214,7 @@ jobs:
 
   assemble:
     name: 汇总六目标正式包候选
-    needs: [validate, policy]
+    needs: [validate, current-toolchain, policy]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
