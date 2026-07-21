@@ -666,6 +666,25 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "触发",
           "parameters": [
             {
@@ -1300,6 +1319,25 @@
           "result": "任意",
           "signature": "法（）：任意",
           "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
+          "static": false
         }
       ],
       "name": "按钮",
@@ -1582,6 +1620,25 @@
           "parameters": [],
           "result": "任意",
           "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
           "static": false
         }
       ],
