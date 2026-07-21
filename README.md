@@ -4,7 +4,7 @@
 [言台](https://github.com/yanxulang/yanxu-platform) 获取窗口、输入、文字、图片、系统服务和
 整帧绘制原语；按钮、输入框、列表、标签页等高级控件全部由言序实现。
 
-当前版本为 `0.2.0`，源码加载最低要求言序 `1.1.9`、言台 `1.0.x` 和言据 `1.1.x`。
+当前版本为 `0.3.0`，源码加载最低要求言序 `1.1.9`、言台 `1.0.x` 和言据 `1.1.x`。
 正式 YXB 与 Bundle 使用经过回放验收的言序 `1.1.20` 构建；言包、言据和既有
 `yanxu-gui` 无需升级或迁移。
 
@@ -14,7 +14,7 @@
 
 ```toml
 [依赖]
-言界 = { 包 = "yanxu-ui", git = "https://github.com/yanxulang/yanxu-ui.git", 修订 = "v0.2.0", 版 = "^0.2" }
+言界 = { 包 = "yanxu-ui", git = "https://github.com/yanxulang/yanxu-ui.git", 修订 = "v0.3.0", 版 = "^0.3" }
 
 [权限]
 图形界面 = true
