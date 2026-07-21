@@ -207,7 +207,7 @@ jobs:
           for heading in 新功能 修复内容 兼容性与平台 安装示例 升级方式 制品与校验 第三方依赖 已知限制; do
             grep -F "## $heading" docs/RELEASE_NOTES_0.1.1.md >/dev/null
           done
-          test "$(grep -c '^言台 = .*修订 = "v0.1.0"' 言序.toml)" -eq 1
+          test "$(grep -c '^言台 = .*修订 = "v1.0.0"' 言序.toml)" -eq 1
           grep -E '^言据 = .*修订 = "[0-9a-f]{40}"' 言序.toml >/dev/null
           blocked="$(printf 'co%s' 'dex')"
           if grep -RIni --exclude-dir=.git --exclude-dir=.yanxu --exclude='言序.lock' "$blocked" .; then exit 1; fi
