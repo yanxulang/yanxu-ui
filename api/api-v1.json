@@ -2563,6 +2563,20 @@
         },
         {
           "documentation": "",
+          "name": "需要语义状态",
+          "readonly": false,
+          "static": false,
+          "type": "理"
+        },
+        {
+          "documentation": "",
+          "name": "语义摘要",
+          "readonly": false,
+          "static": false,
+          "type": "典"
+        },
+        {
+          "documentation": "",
           "name": "已关闭",
           "readonly": false,
           "static": false,
@@ -2925,6 +2939,26 @@
           "parameters": [],
           "result": "任意",
           "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "同步无障碍",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "无障碍快照",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
           "static": false
         },
         {
