@@ -124,9 +124,14 @@ jobs:
           suffix=""; if [[ "$RUNNER_OS" == "Windows" ]]; then suffix=".exe"; fi
           core="$GITHUB_WORKSPACE/target/yanxu-release/target/debug/yanxu$suffix"
           isolated="$RUNNER_TEMP/current-ui"
+          archive="$RUNNER_TEMP/current-ui.tar"
+          if [[ "$RUNNER_OS" == "Windows" ]]; then
+            isolated=$(cygpath -u "$isolated")
+            archive=$(cygpath -u "$archive")
+          fi
           mkdir -p "$isolated"
-          git archive --format=tar HEAD -o "$RUNNER_TEMP/current-ui.tar"
-          tar -xf "$RUNNER_TEMP/current-ui.tar" -C "$isolated"
+          git archive --format=tar HEAD -o "$archive"
+          tar -xf "$archive" -C "$isolated"
           "$core" 包 更新 "$isolated"
           "$core" 包 更新 "$isolated/examples"
           "$core" 编 "$isolated/examples/自动关闭冒烟.yx" --release \
