@@ -52,6 +52,14 @@ jobs:
           ref: v1.1.9
       - name: 构建言序 1.1.9
         run: cargo build --manifest-path target/yanxu-core/Cargo.toml --locked --bin yanxu
+      - name: 检出言序 1.1.20 发布工具链
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          repository: YanXuLang/yanxu
+          path: target/yanxu-release
+          ref: v1.1.20
+      - name: 构建言序 1.1.20 发布工具链
+        run: cargo build --manifest-path target/yanxu-release/Cargo.toml --locked --bin yanxu
       - name: 核对原生架构
         shell: bash
         env:
@@ -105,8 +113,31 @@ jobs:
             while IFS= read -r -d '' file; do
               name=$(basename "$file" .yx)
               "$core" 编 "$file" --release -o "$RUNNER_TEMP/build/$name.yxb"
-            done
+          done
           test "$(find "$RUNNER_TEMP/build" -type f -name '*.yxb' | wc -l | tr -d ' ')" -eq 12
+      - name: 隔离构建并回放可发布应用
+        shell: bash
+        env:
+          EXPECTED_TARGET: ${{ matrix.target }}
+        run: |
+          set -euo pipefail
+          suffix=""; if [[ "$RUNNER_OS" == "Windows" ]]; then suffix=".exe"; fi
+          core="$GITHUB_WORKSPACE/target/yanxu-release/target/debug/yanxu$suffix"
+          isolated="$RUNNER_TEMP/current-ui"
+          mkdir -p "$isolated"
+          git archive --format=tar HEAD -o "$RUNNER_TEMP/current-ui.tar"
+          tar -xf "$RUNNER_TEMP/current-ui.tar" -C "$isolated"
+          "$core" 包 更新 "$isolated"
+          "$core" 包 更新 "$isolated/examples"
+          "$core" 编 "$isolated/examples/自动关闭冒烟.yx" --release \
+            -o "$RUNNER_TEMP/build/自动关闭冒烟.yxb"
+          if [[ "$RUNNER_OS" == "Linux" ]]; then
+            xvfb-run -a "$core" 行 "$RUNNER_TEMP/build/自动关闭冒烟.yxb"
+          else
+            "$core" 行 "$RUNNER_TEMP/build/自动关闭冒烟.yxb"
+          fi
+          printf 'runtime=1.1.20\ntarget=%s\n' "$EXPECTED_TARGET" \
+            > "$RUNNER_TEMP/build/自动关闭冒烟.yxb.runtime"
       - name: 真实原生窗口与整帧提交冒烟
         shell: bash
         run: |
@@ -138,6 +169,7 @@ jobs:
           cp 言序.lock "$candidate/root/言序.lock"
           cp examples/言序.lock "$candidate/examples/言序.lock"
           cp "$RUNNER_TEMP/build/自动关闭冒烟.yxb" "$candidate/build/"
+          cp "$RUNNER_TEMP/build/自动关闭冒烟.yxb.runtime" "$candidate/build/"
           for file in "$RUNNER_TEMP"/build/*.yxb; do
             if command -v sha256sum >/dev/null 2>&1; then
               checksum=$(sha256sum "$file" | awk '{print $1}')
@@ -245,13 +277,17 @@ jobs:
             test -f "$candidate/root/言序.lock"
             test -f "$candidate/examples/言序.lock"
             test -f "$candidate/build/自动关闭冒烟.yxb"
+            test -f "$candidate/build/自动关闭冒烟.yxb.runtime"
             test "$(wc -l < "$candidate/build/SHA256SUMS" | tr -d ' ')" -eq 12
             grep -F "target = \"$target\"" "$candidate/root/言序.lock"
+            grep -Fx 'runtime=1.1.20' "$candidate/build/自动关闭冒烟.yxb.runtime"
+            grep -Fx "target=$target" "$candidate/build/自动关闭冒烟.yxb.runtime"
             mkdir -p "$stage/locks/$target/examples"
             mkdir -p "$stage/build/targets/$target"
             cp "$candidate/root/言序.lock" "$stage/locks/$target/言序.lock"
             cp "$candidate/examples/言序.lock" "$stage/locks/$target/examples/言序.lock"
             cp "$candidate/build/自动关闭冒烟.yxb" "$stage/build/targets/$target/"
+            cp "$candidate/build/自动关闭冒烟.yxb.runtime" "$stage/build/targets/$target/"
             checksum=$(sha256sum < "$stage/build/targets/$target/自动关闭冒烟.yxb" | awk '{print $1}')
             printf '%s  %s\n' "$checksum" '自动关闭冒烟.yxb' \
               > "$stage/build/targets/$target/自动关闭冒烟.yxb.sha256"
