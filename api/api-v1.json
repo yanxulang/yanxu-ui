@@ -124,6 +124,13 @@
         },
         {
           "documentation": "",
+          "name": "叠层托管状态",
+          "readonly": false,
+          "static": false,
+          "type": "理"
+        },
+        {
+          "documentation": "",
           "name": "已关闭",
           "readonly": false,
           "static": false,
@@ -3963,6 +3970,20 @@
           "readonly": false,
           "static": false,
           "type": "理"
+        },
+        {
+          "documentation": "",
+          "name": "锚控件",
+          "readonly": false,
+          "static": false,
+          "type": "任意"
+        },
+        {
+          "documentation": "",
+          "name": "实际方向",
+          "readonly": false,
+          "static": false,
+          "type": "文"
         }
       ],
       "kind": "class",
@@ -3994,6 +4015,21 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "锚定",
+          "parameters": [
+            {
+              "name": "控件值",
+              "type": "任意"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "打开",
           "parameters": [],
           "result": "任意",
@@ -4014,15 +4050,117 @@
           "async": false,
           "documentation": "",
           "kind": "method",
-          "name": "默认事件",
+          "name": "接收事件",
           "parameters": [
             {
               "name": "所事件",
               "type": "任意"
+            },
+            {
+              "name": "阶段",
+              "type": "文"
             }
           ],
           "result": "任意",
-          "signature": "法（任意）：任意",
+          "signature": "法（任意，文）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "叠层锚框",
+          "parameters": [],
+          "result": "列<数>",
+          "signature": "法（）：列<数>",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "叠层尺寸",
+          "parameters": [],
+          "result": "列<数>",
+          "signature": "法（）：列<数>",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "叠层配置",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "叠层布局",
+          "parameters": [
+            {
+              "name": "新框",
+              "type": "列<数>"
+            },
+            {
+              "name": "方向",
+              "type": "文"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（列<数>，文）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "叠层命中",
+          "parameters": [
+            {
+              "name": "横坐标",
+              "type": "数"
+            },
+            {
+              "name": "纵坐标",
+              "type": "数"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（数，数）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "叠层渲染树",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "叠层关闭请求",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "关闭",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
           "static": false
         },
         {
@@ -4042,6 +4180,16 @@
           ],
           "result": "任意",
           "signature": "法（任意，典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "语义",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
           "static": false
         }
       ],
@@ -4267,6 +4415,13 @@
         {
           "documentation": "",
           "name": "焦点管理",
+          "readonly": false,
+          "static": false,
+          "type": "任意"
+        },
+        {
+          "documentation": "",
+          "name": "叠层管理",
           "readonly": false,
           "static": false,
           "type": "任意"
@@ -4601,6 +4756,75 @@
           ],
           "result": "任意",
           "signature": "法（任意）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "叠层包含控件",
+          "parameters": [
+            {
+              "name": "叠层控件",
+              "type": "任意"
+            },
+            {
+              "name": "目标控件",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（任意，任意）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "标记叠层变化",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "打开叠层",
+          "parameters": [
+            {
+              "name": "叠层控件",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（任意）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "关闭叠层",
+          "parameters": [
+            {
+              "name": "叠层控件",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（任意）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "关闭全部叠层",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
           "static": false
         },
         {

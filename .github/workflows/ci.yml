@@ -152,8 +152,10 @@ jobs:
           core="$GITHUB_WORKSPACE/target/yanxu-core/target/debug/yanxu$suffix"
           if [[ "$RUNNER_OS" == "Linux" ]]; then
             xvfb-run -a "$core" 字节 integration/真实窗口.yx
+            xvfb-run -a "$core" 字节 integration/叠层窗口.yx
           else
             "$core" 字节 integration/真实窗口.yx
+            "$core" 字节 integration/叠层窗口.yx
           fi
       - name: API 漂移、文档与平台边界门禁
         shell: bash
@@ -203,7 +205,7 @@ jobs:
           sudo apt-get -o Acquire::Retries=5 -o Acquire::ForceIPv4=true update
           sudo apt-get -o Acquire::Retries=5 -o Acquire::ForceIPv4=true install -y \
             libfontconfig1 libwayland-client0 libxkbcommon0 libxkbcommon-x11-0 \
-            libx11-6
+            libx11-6 xvfb
       - name: 检出当前言序工具链
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
@@ -229,6 +231,7 @@ jobs:
           "$core" 字节 integration/表单控件.yx
           "$core" 字节 integration/渲染命令.yx
           "$core" 字节 integration/高级控件.yx
+          xvfb-run -a "$core" 字节 integration/叠层窗口.yx
           "$core" 编 . --release -o "$RUNNER_TEMP/yanxu-ui.yxb"
           test -s "$RUNNER_TEMP/yanxu-ui.yxb"
 
