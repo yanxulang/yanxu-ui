@@ -4,7 +4,7 @@ target = "aarch64-apple-darwin"
 generator = "1.1.9"
 
 [root_dependencies]
-"言界" = "yanxu-ui@0.3.0#a5b4b144f221-30ff3fb4845e70a9"
+"言界" = "yanxu-ui@0.3.0#a5b4b144f221-43d031df91539157"
 
 [root_dev_dependencies]
 
@@ -32,11 +32,11 @@ checksum = "4ba2a55db0828178d67c555500844bc2e03856bef79aeddae96bf0d3bfec6fdb"
 size = 6129760
 
 [[package]]
-id = "yanxu-ui@0.3.0#a5b4b144f221-30ff3fb4845e70a9"
+id = "yanxu-ui@0.3.0#a5b4b144f221-43d031df91539157"
 name = "yanxu-ui"
 version = "0.3.0"
 source = "path:.."
-checksum = "30ff3fb4845e70a9cbc99c75dcef4229235b9b39ecea96bdee206cfdee51b4a6"
+checksum = "43d031df915391570d829fe92bd453dc832c3fd0922dd014e51239a2aa9e4706"
 entry = "src/主.yx"
 target = "aarch64-apple-darwin"
 minimum_yanxu = ">=1.1.9"
@@ -47,6 +47,7 @@ minimum_yanxu = ">=1.1.9"
 
 [package.exports]
 "几何" = "src/核心/几何.yx"
+"叠层" = "src/叠层/公共.yx"
 "文本" = "src/文本/文档.yx"
 "脏区" = "src/核心/脏区.yx"
 "配置" = "src/样式/配置.yx"
