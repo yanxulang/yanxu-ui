@@ -1,14 +1,14 @@
 [包]
 格式 = 2
 名称 = "yanxu-ui"
-版本 = "0.1.1"
+版本 = "0.1.2"
 言序 = ">=1.1.9"
 入口 = "src/主.yx"
 说明 = "以言序实现的跨平台保留模式 GUI 控件库"
 许可 = "MIT OR Apache-2.0"
 
 [依赖]
-言台 = { 包 = "yanxu-platform", git = "https://github.com/yanxulang/yanxu-platform.git", 修订 = "v0.1.0", 版 = "^0.1" }
+言台 = { 包 = "yanxu-platform", git = "https://github.com/yanxulang/yanxu-platform.git", 修订 = "v1.0.0", 版 = "^1.0" }
 言据 = { 包 = "言据", git = "https://github.com/yanxulang/yanju.git", 修订 = "765d9dd623db901a3e71aa4759dbcd77563cb3a9", 版 = "^1.1" }
 
 [导出]

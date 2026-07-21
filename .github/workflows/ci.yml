@@ -88,7 +88,8 @@ jobs:
           set -euo pipefail
           suffix=""; if [[ "$RUNNER_OS" == "Windows" ]]; then suffix=".exe"; fi
           core="$GITHUB_WORKSPACE/target/yanxu-core/target/debug/yanxu$suffix"
-          "$core" 试 tests
+          # 言台 1.0 六目标包冷加载计入单卷耗时；保持 30 秒硬上限以区分慢启动与挂起。
+          "$core" 试 tests --超时 30000
           "$core" 字节 integration/控件树集成.yx
           "$core" 字节 integration/渲染命令.yx
           "$core" 字节 integration/高级控件.yx
@@ -153,6 +154,45 @@ jobs:
           path: ${{ runner.temp }}/candidate
           if-no-files-found: error
 
+  current-toolchain:
+    name: 当前言序兼容
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: 安装 Linux 窗口运行依赖
+        run: |
+          set -euo pipefail
+          sudo apt-get -o Acquire::Retries=5 -o Acquire::ForceIPv4=true update
+          sudo apt-get -o Acquire::Retries=5 -o Acquire::ForceIPv4=true install -y \
+            libfontconfig1 libwayland-client0 libxkbcommon0 libxkbcommon-x11-0 \
+            libx11-6
+      - name: 检出当前言序工具链
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          repository: YanXuLang/yanxu
+          path: target/yanxu-current
+          ref: v1.1.20
+      - name: 构建当前言序工具链
+        run: cargo build --manifest-path target/yanxu-current/Cargo.toml --locked --bin yanxu
+      - name: 验证当前工具链的源码、测试与构建
+        shell: bash
+        run: |
+          set -euo pipefail
+          core="$GITHUB_WORKSPACE/target/yanxu-current/target/debug/yanxu"
+          "$core" 包 更新 .
+          "$core" 包 更新 examples
+          find src tests integration examples -type f -name '*.yx' -print0 | \
+            while IFS= read -r -d '' file; do
+              "$core" 查 "$file"
+            done
+          # 当前工具链在冷缓存中也使用同一有界预算，避免只放宽其中一个兼容端点。
+          "$core" 试 tests --超时 30000
+          "$core" 字节 integration/控件树集成.yx
+          "$core" 字节 integration/渲染命令.yx
+          "$core" 字节 integration/高级控件.yx
+          "$core" 编 . --release -o "$RUNNER_TEMP/yanxu-ui.yxb"
+          test -s "$RUNNER_TEMP/yanxu-ui.yxb"
+
   policy:
     name: 包边界、安全与许可
     runs-on: ubuntu-24.04
@@ -167,16 +207,16 @@ jobs:
           test -f LICENSE-MIT && test -f LICENSE-APACHE
           test -f SECURITY.md && test -f THIRD_PARTY.md && test -f COMPATIBILITY.md
           for heading in 新功能 修复内容 兼容性与平台 安装示例 升级方式 制品与校验 第三方依赖 已知限制; do
-            grep -F "## $heading" docs/RELEASE_NOTES_0.1.1.md >/dev/null
+            grep -F "## $heading" docs/RELEASE_NOTES_0.1.2.md >/dev/null
           done
-          test "$(grep -c '^言台 = .*修订 = "v0.1.0"' 言序.toml)" -eq 1
+          test "$(grep -c '^言台 = .*修订 = "v1.0.0"' 言序.toml)" -eq 1
           grep -E '^言据 = .*修订 = "[0-9a-f]{40}"' 言序.toml >/dev/null
           blocked="$(printf 'co%s' 'dex')"
           if grep -RIni --exclude-dir=.git --exclude-dir=.yanxu --exclude='言序.lock' "$blocked" .; then exit 1; fi
 
   assemble:
     name: 汇总六目标正式包候选
-    needs: [validate, policy]
+    needs: [validate, current-toolchain, policy]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -193,7 +233,7 @@ jobs:
             x86_64-apple-darwin aarch64-apple-darwin
             x86_64-pc-windows-msvc aarch64-pc-windows-msvc
           )
-          stage="$RUNNER_TEMP/yanxu-ui-0.1.1"
+          stage="$RUNNER_TEMP/yanxu-ui-0.1.2"
           mkdir -p "$stage/locks"
           cp -R .github src api docs examples integration tests scripts "$stage/"
           cp 言序.toml 言序.lock README.md CHANGELOG.md COMPATIBILITY.md \
@@ -215,20 +255,20 @@ jobs:
             printf '%s  %s\n' "$checksum" '自动关闭冒烟.yxb' \
               > "$stage/build/targets/$target/自动关闭冒烟.yxb.sha256"
           done
-          archive="$GITHUB_WORKSPACE/yanxu-ui-0.1.1-six-targets.tar.gz"
+          archive="$GITHUB_WORKSPACE/yanxu-ui-0.1.2-six-targets.tar.gz"
           tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner \
-            -C "$RUNNER_TEMP" -czf "$archive" yanxu-ui-0.1.1
+            -C "$RUNNER_TEMP" -czf "$archive" yanxu-ui-0.1.2
           checksum=$(sha256sum "$archive" | awk '{print $1}')
           printf '%s  %s\n' "$checksum" "$(basename "$archive")" \
-            > yanxu-ui-0.1.1-six-targets.sha256
-          cp 言序.toml yanxu-ui-0.1.1.toml
+            > yanxu-ui-0.1.2-six-targets.sha256
+          cp 言序.toml yanxu-ui-0.1.2.toml
           cp api/api-v1.json api-v1.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: yanxu-ui-six-targets
           path: |
-            yanxu-ui-0.1.1-six-targets.tar.gz
-            yanxu-ui-0.1.1-six-targets.sha256
-            yanxu-ui-0.1.1.toml
+            yanxu-ui-0.1.2-six-targets.tar.gz
+            yanxu-ui-0.1.2-six-targets.sha256
+            yanxu-ui-0.1.2.toml
             api-v1.json
           if-no-files-found: error

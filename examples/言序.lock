@@ -1,23 +1,23 @@
 lock_version = 2
-manifest_checksum = "ccd89670d7f67cf78cbaada1388346c0a9f8f7c434741366bbd57b940d8acb1b"
+manifest_checksum = "d7ad72e615cf37595399adb96e6c4f076b34ff4c27a5d73c9815cab0097fc4d4"
 target = "aarch64-apple-darwin"
 generator = "1.1.9"
 
 [root_dependencies]
-"言界" = "yanxu-ui@0.1.1#a5b4b144f221-193ba75d1d46bdf0"
+"言界" = "yanxu-ui@0.1.2#a5b4b144f221-9e8f33b4ad10a7bb"
 
 [root_dev_dependencies]
 
 [[package]]
-id = "yanxu-platform@0.1.0#d95caa6bf952-93c96bdb2e39ad2a"
+id = "yanxu-platform@1.0.0#d95caa6bf952-c0ebb9773aa5a4d9"
 name = "yanxu-platform"
-version = "0.1.0"
+version = "1.0.0"
 source = "git:https://github.com/yanxulang/yanxu-platform.git"
-revision = "c9aac937942cf81bfdfb285f6b50afcb56a49a86"
-checksum = "93c96bdb2e39ad2a8bf740dc24bb71082a232dc44885e5a9f07c05dea38b5e24"
+revision = "9b6bce794a2e23fba04340f762e3d8f49a2724ff"
+checksum = "c0ebb9773aa5a4d9e889213ef085d9f75f5959f7cc5b63aa7c60f4e83f5df0ad"
 entry = "src/主.yx"
 target = "aarch64-apple-darwin"
-minimum_yanxu = ">=1.1.7"
+minimum_yanxu = ">=1.1.7, <2.0.0"
 
 [package.dependencies]
 
@@ -28,21 +28,21 @@ minimum_yanxu = ">=1.1.7"
 abi = 2
 target = "aarch64-apple-darwin"
 path = "dist/aarch64-apple-darwin/libyanxu_platform_native.dylib"
-checksum = "ad91b0a85a9f39926dc2b2127a648b29eaff2e4b3521be893f7c11ec7ffc3c9c"
-size = 4670368
+checksum = "4ba2a55db0828178d67c555500844bc2e03856bef79aeddae96bf0d3bfec6fdb"
+size = 6129760
 
 [[package]]
-id = "yanxu-ui@0.1.1#a5b4b144f221-193ba75d1d46bdf0"
+id = "yanxu-ui@0.1.2#a5b4b144f221-9e8f33b4ad10a7bb"
 name = "yanxu-ui"
-version = "0.1.1"
+version = "0.1.2"
 source = "path:.."
-checksum = "193ba75d1d46bdf0489fc5c7efd667f4f1c3dad0ee578d2461c84e2bc44494c9"
+checksum = "9e8f33b4ad10a7bb8ae7291f26de4366030e8e73c58e8f23a78c2c601e5a4b0f"
 entry = "src/主.yx"
 target = "aarch64-apple-darwin"
 minimum_yanxu = ">=1.1.9"
 
 [package.dependencies]
-"言台" = "yanxu-platform@0.1.0#d95caa6bf952-93c96bdb2e39ad2a"
+"言台" = "yanxu-platform@1.0.0#d95caa6bf952-c0ebb9773aa5a4d9"
 "言据" = "言据@1.1.2#9f376cc5bbdb-224c315783494338"
 
 [package.exports]
