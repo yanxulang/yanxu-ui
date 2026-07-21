@@ -72,6 +72,7 @@
 - [API](docs/API.md)
 - [生成的完整 API 参考](docs/REFERENCE.md)
 - [文本编辑与 IME](docs/TEXT_EDITING.md)
+- [原生无障碍接入](docs/ACCESSIBILITY.md)
 - [样式与配置](docs/THEMING.md)
 - [示例索引](docs/EXAMPLES.md)
 - [兼容性](COMPATIBILITY.md)
