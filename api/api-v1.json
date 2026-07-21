@@ -3141,6 +3141,21 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "更新主题",
+          "parameters": [
+            {
+              "name": "覆盖",
+              "type": "典"
+            }
+          ],
+          "result": "数",
+          "signature": "法（典）：数",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "监听",
           "parameters": [
             {
