@@ -179,6 +179,21 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "查找编号",
+          "parameters": [
+            {
+              "name": "编号值",
+              "type": "数"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（数）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "取窗口",
           "parameters": [],
           "result": "任意",
@@ -645,6 +660,25 @@
           ],
           "result": "任意",
           "signature": "法（任意）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
           "static": false
         },
         {
@@ -1285,6 +1319,25 @@
           "result": "任意",
           "signature": "法（）：任意",
           "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
+          "static": false
         }
       ],
       "name": "按钮",
@@ -1567,6 +1620,25 @@
           "parameters": [],
           "result": "任意",
           "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
           "static": false
         }
       ],
@@ -2563,6 +2635,20 @@
         },
         {
           "documentation": "",
+          "name": "需要语义状态",
+          "readonly": false,
+          "static": false,
+          "type": "理"
+        },
+        {
+          "documentation": "",
+          "name": "语义摘要",
+          "readonly": false,
+          "static": false,
+          "type": "典"
+        },
+        {
+          "documentation": "",
           "name": "已关闭",
           "readonly": false,
           "static": false,
@@ -2931,6 +3017,26 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "同步无障碍",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "无障碍快照",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "绘制",
           "parameters": [],
           "result": "任意",
@@ -3135,6 +3241,21 @@
           ],
           "result": "任意",
           "signature": "法（典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "更新主题",
+          "parameters": [
+            {
+              "name": "覆盖",
+              "type": "典"
+            }
+          ],
+          "result": "数",
+          "signature": "法（典）：数",
           "static": false
         },
         {
