@@ -1074,6 +1074,21 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "下拉选择",
+          "parameters": [
+            {
+              "name": "选项",
+              "type": "列<文>"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（列<文>）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "输入框",
           "parameters": [
             {
@@ -2096,6 +2111,352 @@
         }
       ],
       "name": "切换",
+      "protocols": [],
+      "superclass": "控件"
+    },
+    {
+      "documentation": "",
+      "fields": [
+        {
+          "documentation": "",
+          "name": "选项列",
+          "readonly": false,
+          "static": false,
+          "type": "列<文>"
+        },
+        {
+          "documentation": "",
+          "name": "选择序",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "展开状态",
+          "readonly": false,
+          "static": false,
+          "type": "理"
+        },
+        {
+          "documentation": "",
+          "name": "悬停序",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "按下选项",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "首可见序",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "选项高",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "最大可见",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "弹出宽",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "占位",
+          "readonly": false,
+          "static": false,
+          "type": "文"
+        }
+      ],
+      "kind": "class",
+      "methods": [
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "初始化",
+          "parameters": [
+            {
+              "name": "父值",
+              "type": "任意"
+            },
+            {
+              "name": "种类值",
+              "type": "文"
+            },
+            {
+              "name": "配置",
+              "type": "典"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意，文，典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "选项",
+          "parameters": [
+            {
+              "name": "新值",
+              "type": "任意"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "取选项",
+          "parameters": [],
+          "result": "列<文>",
+          "signature": "法（）：列<文>",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "选择",
+          "parameters": [
+            {
+              "name": "序",
+              "type": "数"
+            }
+          ],
+          "result": "理",
+          "signature": "法（数）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "取选择",
+          "parameters": [],
+          "result": "数",
+          "signature": "法（）：数",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "取值",
+          "parameters": [],
+          "result": "文|空",
+          "signature": "法（）：文|空",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "展开",
+          "parameters": [],
+          "result": "理",
+          "signature": "法（）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "折叠",
+          "parameters": [],
+          "result": "理",
+          "signature": "法（）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "取展开",
+          "parameters": [],
+          "result": "理",
+          "signature": "法（）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "显示",
+          "parameters": [
+            {
+              "name": "状态值",
+              "type": "理"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（理）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "启用",
+          "parameters": [
+            {
+              "name": "状态值",
+              "type": "理"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（理）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "只读",
+          "parameters": [
+            {
+              "name": "状态值",
+              "type": "理"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（理）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "关闭",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "命中",
+          "parameters": [
+            {
+              "name": "横坐标",
+              "type": "数"
+            },
+            {
+              "name": "纵坐标",
+              "type": "数"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（数，数）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "测量",
+          "parameters": [
+            {
+              "name": "可用",
+              "type": "列<数>"
+            }
+          ],
+          "result": "列<数>",
+          "signature": "法（列<数>）：列<数>",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "默认事件",
+          "parameters": [
+            {
+              "name": "所事件",
+              "type": "任意"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "构建绘制",
+          "parameters": [
+            {
+              "name": "节点",
+              "type": "任意"
+            },
+            {
+              "name": "样式值",
+              "type": "典"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意，典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "语义",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
+          "static": false
+        }
+      ],
+      "name": "下拉选择",
       "protocols": [],
       "superclass": "控件"
     },
