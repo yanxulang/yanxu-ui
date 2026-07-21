@@ -153,9 +153,11 @@ jobs:
           if [[ "$RUNNER_OS" == "Linux" ]]; then
             xvfb-run -a "$core" 字节 integration/真实窗口.yx
             xvfb-run -a "$core" 字节 integration/叠层窗口.yx
+            xvfb-run -a "$core" 字节 integration/菜单窗口.yx
           else
             "$core" 字节 integration/真实窗口.yx
             "$core" 字节 integration/叠层窗口.yx
+            "$core" 字节 integration/菜单窗口.yx
           fi
       - name: API 漂移、文档与平台边界门禁
         shell: bash
@@ -232,6 +234,7 @@ jobs:
           "$core" 字节 integration/渲染命令.yx
           "$core" 字节 integration/高级控件.yx
           xvfb-run -a "$core" 字节 integration/叠层窗口.yx
+          xvfb-run -a "$core" 字节 integration/菜单窗口.yx
           "$core" 编 . --release -o "$RUNNER_TEMP/yanxu-ui.yxb"
           test -s "$RUNNER_TEMP/yanxu-ui.yxb"
 
