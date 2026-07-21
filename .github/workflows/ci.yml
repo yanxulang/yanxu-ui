@@ -99,6 +99,7 @@ jobs:
           # 言台 1.0 六目标包冷加载计入单卷耗时；保持 30 秒硬上限以区分慢启动与挂起。
           "$core" 试 tests --超时 30000
           "$core" 字节 integration/控件树集成.yx
+          "$core" 字节 integration/表单控件.yx
           "$core" 字节 integration/渲染命令.yx
           "$core" 字节 integration/高级控件.yx
       - name: 构建正式包入口与全部公开示例
@@ -225,6 +226,7 @@ jobs:
           # 当前工具链在冷缓存中也使用同一有界预算，避免只放宽其中一个兼容端点。
           "$core" 试 tests --超时 30000
           "$core" 字节 integration/控件树集成.yx
+          "$core" 字节 integration/表单控件.yx
           "$core" 字节 integration/渲染命令.yx
           "$core" 字节 integration/高级控件.yx
           "$core" 编 . --release -o "$RUNNER_TEMP/yanxu-ui.yxb"
