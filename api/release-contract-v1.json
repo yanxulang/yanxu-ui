@@ -27,7 +27,7 @@
     "allCompatible": true
   },
   "supplyChain": {
-    "reportSha256": "1133e1fbf148a73e64a8b763c35063c615fb6c7f3ae71eac6f65d1b53be98395",
+    "reportSha256": "4bd6549c3da0aa4248aa486018535be0d9546dda57ccbf0b0d467664ef43d8c2",
     "platform": {
       "version": "1.0.0",
       "revision": "9b6bce794a2e23fba04340f762e3d8f49a2724ff",
