@@ -4851,6 +4851,13 @@
         },
         {
           "documentation": "",
+          "name": "帧调度值",
+          "readonly": false,
+          "static": false,
+          "type": "任意"
+        },
+        {
+          "documentation": "",
           "name": "主题对象",
           "readonly": false,
           "static": false,
@@ -5116,6 +5123,40 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "动画",
+          "parameters": [
+            {
+              "name": "配置",
+              "type": "典"
+            },
+            {
+              "name": "更新回调",
+              "type": "任意"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（典，任意）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "取消动画",
+          "parameters": [
+            {
+              "name": "任务值",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（任意）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "请求布局",
           "parameters": [],
           "result": "任意",
@@ -5355,6 +5396,16 @@
           "documentation": "",
           "kind": "method",
           "name": "无障碍快照",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "诊断快照",
           "parameters": [],
           "result": "典",
           "signature": "法（）：典",
@@ -5677,6 +5728,16 @@
           "documentation": "",
           "kind": "method",
           "name": "调试快照",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "诊断快照",
           "parameters": [],
           "result": "典",
           "signature": "法（）：典",
