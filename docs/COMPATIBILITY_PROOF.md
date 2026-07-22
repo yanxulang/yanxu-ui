@@ -20,7 +20,7 @@
 | 跨平台生产验收 | `v0.8.0` |
 | 1.0 候选冻结 | `v0.9.0` |
 
-机器报告见[`api/compatibility-v1.json`](../api/compatibility-v1.json)。1.0 候选公开面包含
+机器报告见[`api/compatibility-v1.json`](../api/compatibility-v1.json)。1.0 稳定公开面包含
 30 个声明、23 个类、7 个包级函数、125 个域和 375 个方法；当前 API 与冻结快照的
 SHA-256 均为`60596fd0f1c6e4a89cb44acd6109fe40945d386fa617d8f562ee8e8486c1a228`。
 
