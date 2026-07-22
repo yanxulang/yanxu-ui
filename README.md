@@ -92,6 +92,7 @@
 - [示例索引](docs/EXAMPLES.md)
 - [兼容性](COMPATIBILITY.md)
 - [支持与稳定性](SUPPORT.md)
+- [1.0 发布契约](docs/RELEASE_CONTRACT_1_0.md)
 - [0.x–1.0 API 兼容证明](docs/COMPATIBILITY_PROOF.md)
 - [从 0.x 升级到 1.0](docs/MIGRATION_0_X_TO_1_0.md)
 - [安全与权限](SECURITY.md)

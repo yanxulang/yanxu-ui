@@ -323,8 +323,12 @@ jobs:
           node scripts/check-supply-chain.mjs --root . \
             --report "$RUNNER_TEMP/supply-chain-v1.json"
           cmp api/supply-chain-v1.json "$RUNNER_TEMP/supply-chain-v1.json"
+          node scripts/check-release-contract.mjs --root . \
+            --report "$RUNNER_TEMP/release-contract-v1.json"
+          cmp api/release-contract-v1.json "$RUNNER_TEMP/release-contract-v1.json"
           test -f LICENSE-MIT && test -f LICENSE-APACHE
-          test -f SECURITY.md && test -f THIRD_PARTY.md && test -f COMPATIBILITY.md
+          test -f SECURITY.md && test -f THIRD_PARTY.md && test -f COMPATIBILITY.md && test -f SUPPORT.md
+          test -f docs/RELEASE_CONTRACT_1_0.md
           for heading in 新功能 修复内容 兼容性与平台 安装示例 升级方式 制品与校验 第三方依赖 已知限制; do
             grep -F "## $heading" docs/RELEASE_NOTES_0.9.0.md >/dev/null
           done
