@@ -104,6 +104,7 @@ jobs:
           "$core" 字节 integration/高级控件.yx
           "$core" 字节 integration/数据视图.yx
           "$core" 字节 integration/文本视图.yx
+          "$core" 字节 integration/生命周期.yx
       - name: 构建正式包入口与全部公开示例
         shell: bash
         run: |
@@ -239,6 +240,7 @@ jobs:
           "$core" 字节 integration/高级控件.yx
           "$core" 字节 integration/数据视图.yx
           "$core" 字节 integration/文本视图.yx
+          "$core" 字节 integration/生命周期.yx
           xvfb-run -a "$core" 字节 integration/叠层窗口.yx
           xvfb-run -a "$core" 字节 integration/菜单窗口.yx
           xvfb-run -a "$core" 字节 integration/动画窗口.yx
