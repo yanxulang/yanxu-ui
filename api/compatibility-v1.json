@@ -109,6 +109,16 @@
       "functions": 7,
       "fields": 125,
       "methods": 375
+    },
+    {
+      "version": "0.9.0",
+      "sha256": "60596fd0f1c6e4a89cb44acd6109fe40945d386fa617d8f562ee8e8486c1a228",
+      "compatible": true,
+      "declarations": 30,
+      "classes": 23,
+      "functions": 7,
+      "fields": 125,
+      "methods": 375
     }
   ]
 }
