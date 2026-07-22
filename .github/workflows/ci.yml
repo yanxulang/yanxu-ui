@@ -119,7 +119,7 @@ jobs:
               name=$(basename "$file" .yx)
               "$core" 编 "$file" --release -o "$RUNNER_TEMP/build/$name.yxb"
           done
-          test "$(find "$RUNNER_TEMP/build" -type f -name '*.yxb' | wc -l | tr -d ' ')" -eq 15
+          test "$(find "$RUNNER_TEMP/build" -type f -name '*.yxb' | wc -l | tr -d ' ')" -eq 16
       - name: 隔离构建并回放可发布应用
         shell: bash
         env:
@@ -194,7 +194,7 @@ jobs:
             fi
             printf '%s  %s\n' "$checksum" "$(basename "$file")"
           done > "$candidate/build/SHA256SUMS"
-          test "$(wc -l < "$candidate/build/SHA256SUMS" | tr -d ' ')" -eq 15
+          test "$(wc -l < "$candidate/build/SHA256SUMS" | tr -d ' ')" -eq 16
           grep -F "target = \"$TARGET\"" "$candidate/root/言序.lock"
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
@@ -341,7 +341,7 @@ jobs:
             test -f "$candidate/examples/言序.lock"
             test -f "$candidate/build/自动关闭冒烟.yxb"
             test -f "$candidate/build/自动关闭冒烟.yxb.runtime"
-            test "$(wc -l < "$candidate/build/SHA256SUMS" | tr -d ' ')" -eq 15
+            test "$(wc -l < "$candidate/build/SHA256SUMS" | tr -d ' ')" -eq 16
             grep -F "target = \"$target\"" "$candidate/root/言序.lock"
             grep -Fx 'runtime=1.1.20' "$candidate/build/自动关闭冒烟.yxb.runtime"
             grep -Fx "target=$target" "$candidate/build/自动关闭冒烟.yxb.runtime"
