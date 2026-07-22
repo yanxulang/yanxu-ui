@@ -5081,8 +5081,18 @@
           "kind": "method",
           "name": "关闭",
           "parameters": [],
-          "result": "任意",
-          "signature": "法（）：任意",
+          "result": "典",
+          "signature": "法（）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "生命周期快照",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
           "static": false
         },
         {
@@ -5565,6 +5575,41 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "资源能力",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "资源配额",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "配置资源配额",
+          "parameters": [
+            {
+              "name": "配置",
+              "type": "典"
+            }
+          ],
+          "result": "典",
+          "signature": "法（典）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "运行",
           "parameters": [],
           "result": "任意",
@@ -5587,8 +5632,18 @@
           "kind": "method",
           "name": "关闭",
           "parameters": [],
-          "result": "任意",
-          "signature": "法（）：任意",
+          "result": "典",
+          "signature": "法（）：典",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "生命周期快照",
+          "parameters": [],
+          "result": "典",
+          "signature": "法（）：典",
           "static": false
         },
         {
@@ -5659,6 +5714,16 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "关闭全部计时器",
+          "parameters": [],
+          "result": "数",
+          "signature": "法（）：数",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "定时器",
           "parameters": [
             {
@@ -5691,6 +5756,26 @@
           ],
           "result": "任意",
           "signature": "法（字节串）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "活动图片资源数",
+          "parameters": [],
+          "result": "数",
+          "signature": "法（）：数",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "关闭全部图片",
+          "parameters": [],
+          "result": "数",
+          "signature": "法（）：数",
           "static": false
         },
         {

@@ -4,7 +4,7 @@
 [言台](https://github.com/yanxulang/yanxu-platform) 获取窗口、输入、文字、图片、系统服务和
 整帧绘制原语；按钮、输入框、列表、标签页等高级控件全部由言序实现。
 
-当前版本为 `0.6.0`，源码加载最低要求言序 `1.1.9`、言台 `1.0.x` 和言据 `1.1.x`。
+当前版本为 `0.7.0`，源码加载最低要求言序 `1.1.9`、言台 `1.0.x` 和言据 `1.1.x`。
 正式 YXB 与 Bundle 使用经过回放验收的言序 `1.1.20` 构建；言包、言据和既有
 `yanxu-gui` 无需升级或迁移。
 
@@ -14,7 +14,7 @@
 
 ```toml
 [依赖]
-言界 = { 包 = "yanxu-ui", git = "https://github.com/yanxulang/yanxu-ui.git", 修订 = "v0.6.0", 版 = "^0.6" }
+言界 = { 包 = "yanxu-ui", git = "https://github.com/yanxulang/yanxu-ui.git", 修订 = "v0.7.0", 版 = "^0.7" }
 
 [权限]
 图形界面 = true
@@ -62,6 +62,7 @@
   状态和逐行无障碍选择；
 - 可观察状态、数据绑定、单调时间动画值及带焦点/动作回传的原生无障碍语义树；
 - 帧呈现反馈驱动的有界动画、单槽背压、版本化运行诊断和固定运行器性能预算；
+- 言台资源配额协商、托管计时器与图片、单向窗口／应用关闭、结构化关闭报告和资源归零压力门禁；
 - 言据优先的主题配置和等价 JSON 兼容入口。
 
 ## 两条 GUI 路线
@@ -84,6 +85,7 @@
 - [叠层与菜单指南](docs/MENUS.md)
 - [文本与数据视图](docs/DATA_VIEWS.md)
 - [动画、帧反馈与运行诊断](docs/ANIMATION_AND_DIAGNOSTICS.md)
+- [生命周期、配额与错误恢复](docs/LIFECYCLE_AND_RECOVERY.md)
 - [样式与配置](docs/THEMING.md)
 - [示例索引](docs/EXAMPLES.md)
 - [兼容性](COMPATIBILITY.md)
