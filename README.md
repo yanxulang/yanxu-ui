@@ -76,6 +76,7 @@
 - [文本编辑与 IME](docs/TEXT_EDITING.md)
 - [原生无障碍接入](docs/ACCESSIBILITY.md)
 - [完整表单指南](docs/FORMS.md)
+- [叠层与菜单指南](docs/MENUS.md)
 - [样式与配置](docs/THEMING.md)
 - [示例索引](docs/EXAMPLES.md)
 - [兼容性](COMPATIBILITY.md)
