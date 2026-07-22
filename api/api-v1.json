@@ -1186,6 +1186,25 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "虚拟列表",
+          "parameters": [
+            {
+              "name": "源值",
+              "type": "任意"
+            },
+            {
+              "name": "配置",
+              "type": "典"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意，典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "标签页",
           "parameters": [
             {
@@ -3394,6 +3413,25 @@
           "parameters": [],
           "result": "任意",
           "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "行文字宽",
+          "parameters": [
+            {
+              "name": "内容值",
+              "type": "文"
+            },
+            {
+              "name": "样式值",
+              "type": "典"
+            }
+          ],
+          "result": "数",
+          "signature": "法（文，典）：数",
           "static": false
         },
         {
@@ -5648,6 +5686,454 @@
       "name": "应用",
       "protocols": [],
       "superclass": null
+    },
+    {
+      "documentation": "",
+      "fields": [
+        {
+          "documentation": "",
+          "name": "数据源值",
+          "readonly": false,
+          "static": false,
+          "type": "任意"
+        },
+        {
+          "documentation": "",
+          "name": "数据源版本",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "数据源监听",
+          "readonly": false,
+          "static": false,
+          "type": "理"
+        },
+        {
+          "documentation": "",
+          "name": "加载状态值",
+          "readonly": false,
+          "static": false,
+          "type": "文"
+        },
+        {
+          "documentation": "",
+          "name": "加载错误值",
+          "readonly": false,
+          "static": false,
+          "type": "文"
+        },
+        {
+          "documentation": "",
+          "name": "首可见序",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "最后请求起点",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "最后请求数量",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "最后请求版本",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "行渲染器",
+          "readonly": false,
+          "static": false,
+          "type": "任意"
+        },
+        {
+          "documentation": "",
+          "name": "数据更新回调",
+          "readonly": false,
+          "static": false,
+          "type": "任意"
+        },
+        {
+          "documentation": "",
+          "name": "加载失败回调",
+          "readonly": false,
+          "static": false,
+          "type": "任意"
+        },
+        {
+          "documentation": "",
+          "name": "数量变化回调",
+          "readonly": false,
+          "static": false,
+          "type": "任意"
+        },
+        {
+          "documentation": "",
+          "name": "缓存清空回调",
+          "readonly": false,
+          "static": false,
+          "type": "任意"
+        },
+        {
+          "documentation": "",
+          "name": "数据更新监听编号",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "加载失败监听编号",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "数量变化监听编号",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        },
+        {
+          "documentation": "",
+          "name": "缓存清空监听编号",
+          "readonly": false,
+          "static": false,
+          "type": "数"
+        }
+      ],
+      "kind": "class",
+      "methods": [
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "初始化",
+          "parameters": [
+            {
+              "name": "父值",
+              "type": "任意"
+            },
+            {
+              "name": "种类值",
+              "type": "文"
+            },
+            {
+              "name": "配置",
+              "type": "典"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意，文，典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "绑定数据源",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "接收数据更新",
+          "parameters": [
+            {
+              "name": "数据值",
+              "type": "典"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "接收加载失败",
+          "parameters": [
+            {
+              "name": "数据值",
+              "type": "典"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "接收数量变化",
+          "parameters": [
+            {
+              "name": "数据值",
+              "type": "典"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "接收缓存清空",
+          "parameters": [
+            {
+              "name": "数据值",
+              "type": "典"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "同步数据源",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "设置数据源",
+          "parameters": [
+            {
+              "name": "源值",
+              "type": "任意"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "取数据源",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "设置行渲染器",
+          "parameters": [
+            {
+              "name": "回调",
+              "type": "任意"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "数据数量",
+          "parameters": [],
+          "result": "数",
+          "signature": "法（）：数",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "数据状态",
+          "parameters": [],
+          "result": "文",
+          "signature": "法（）：文",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "数据错误",
+          "parameters": [],
+          "result": "文",
+          "signature": "法（）：文",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "刷新数据",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "项目数量",
+          "parameters": [],
+          "result": "数",
+          "signature": "法（）：数",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "行内容",
+          "parameters": [
+            {
+              "name": "序",
+              "type": "数"
+            }
+          ],
+          "result": "文",
+          "signature": "法（数）：文",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "加载可见",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "测量",
+          "parameters": [
+            {
+              "name": "可用",
+              "type": "列<数>"
+            }
+          ],
+          "result": "列<数>",
+          "signature": "法（列<数>）：列<数>",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "布局",
+          "parameters": [
+            {
+              "name": "新框",
+              "type": "列<数>"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（列<数>）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "默认事件",
+          "parameters": [
+            {
+              "name": "所事件",
+              "type": "任意"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "构建绘制",
+          "parameters": [
+            {
+              "name": "节点",
+              "type": "任意"
+            },
+            {
+              "name": "样式值",
+              "type": "典"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（任意，典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "语义",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
+          "static": false
+        }
+      ],
+      "name": "虚拟列表",
+      "protocols": [],
+      "superclass": "列表"
     },
     {
       "async": false,
