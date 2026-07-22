@@ -362,7 +362,7 @@ jobs:
           mkdir -p "$stage/locks"
           cp -R .github src api benchmarks docs examples integration tests scripts "$stage/"
           cp 言序.toml 言序.lock README.md CHANGELOG.md COMPATIBILITY.md \
-            SECURITY.md THIRD_PARTY.md LICENSE-MIT LICENSE-APACHE \
+            SUPPORT.md SECURITY.md THIRD_PARTY.md LICENSE-MIT LICENSE-APACHE \
             .gitattributes .gitignore "$stage/"
           for target in "${targets[@]}"; do
             candidate="$RUNNER_TEMP/candidates/yanxu-ui-$target"
