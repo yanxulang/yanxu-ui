@@ -18,7 +18,7 @@ for token in Win32 HWND AppKit NSWindow Cocoa Wayland X11 Direct2D DirectWrite C
   fi
 done
 
-test "$(find "$root/examples" -type f -name '*.yx' | wc -l | tr -d ' ')" -eq 13
+test "$(find "$root/examples" -type f -name '*.yx' | wc -l | tr -d ' ')" -eq 14
 test "$(grep -c '^公 类 ' "$root/src/主.yx")" -ge 16
 grep -F '引「包:言台」' "$root/src/主.yx" >/dev/null
 grep -F '引「包:言据」' "$root/src/样式/配置.yx" >/dev/null
