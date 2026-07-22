@@ -245,6 +245,45 @@ jobs:
           "$core" 编 . --release -o "$RUNNER_TEMP/yanxu-ui.yxb"
           test -s "$RUNNER_TEMP/yanxu-ui.yxb"
 
+  performance:
+    name: Linux x86-64 Release 性能预算
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: 检出言序 1.1.20 发布工具链
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          repository: YanXuLang/yanxu
+          path: target/yanxu-performance
+          ref: v1.1.20
+      - name: 构建 Release 工具链
+        run: cargo build --manifest-path target/yanxu-performance/Cargo.toml --release --locked --bin yanxu
+      - name: 运行言界性能预算
+        shell: bash
+        run: |
+          set -euo pipefail
+          core="$GITHUB_WORKSPACE/target/yanxu-performance/target/release/yanxu"
+          "$core" 包 更新 .
+          "$core" 格 benchmarks/性能预算.yx > "$RUNNER_TEMP/formatted.yx"
+          cmp benchmarks/性能预算.yx "$RUNNER_TEMP/formatted.yx"
+          "$core" 查 benchmarks/性能预算.yx
+          mkdir -p "$RUNNER_TEMP/performance"
+          YANXU_MAX_STEPS=1000000000 "$core" 字节 benchmarks/性能预算.yx \
+            > "$RUNNER_TEMP/performance/yanxu-ui-performance-budget.json"
+          REPORT="$RUNNER_TEMP/performance/yanxu-ui-performance-budget.json" node -e '
+            const fs = require("fs");
+            const report = JSON.parse(fs.readFileSync(process.env.REPORT, "utf8"));
+            if (report["模式"] !== "release" || report["预算版本"] !== 1 ||
+                report["通过"] !== true || report["场景"].length !== 4 ||
+                report["场景"].some((item) => item["通过"] !== true)) process.exit(1);
+          '
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: performance-budget
+          path: ${{ runner.temp }}/performance/yanxu-ui-performance-budget.json
+          if-no-files-found: error
+          retention-days: 14
+
   policy:
     name: 包边界、安全与许可
     runs-on: ubuntu-24.04
@@ -269,7 +308,7 @@ jobs:
 
   assemble:
     name: 汇总六目标正式包候选
-    needs: [validate, current-toolchain, policy]
+    needs: [validate, current-toolchain, performance, policy]
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -288,7 +327,7 @@ jobs:
           )
           stage="$RUNNER_TEMP/yanxu-ui-0.5.0"
           mkdir -p "$stage/locks"
-          cp -R .github src api docs examples integration tests scripts "$stage/"
+          cp -R .github src api benchmarks docs examples integration tests scripts "$stage/"
           cp 言序.toml 言序.lock README.md CHANGELOG.md COMPATIBILITY.md \
             SECURITY.md THIRD_PARTY.md LICENSE-MIT LICENSE-APACHE \
             .gitattributes .gitignore "$stage/"
