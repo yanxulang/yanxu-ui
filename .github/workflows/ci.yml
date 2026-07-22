@@ -302,12 +302,24 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
       - name: 检查边界、文档和发布元数据
         run: |
           set -euo pipefail
           sh -n scripts/*.sh
           sh scripts/check-boundary.sh
           node scripts/check-doc-links.mjs
+          api_baselines="$RUNNER_TEMP/api-baselines"
+          mkdir -p "$api_baselines"
+          api_arguments=()
+          for version in 0.1.0 0.1.1 0.1.2 0.2.0 0.3.0 0.4.0 0.5.0 0.6.0 0.7.0 0.8.0; do
+            git show "v$version:api/api-v1.json" > "$api_baselines/$version.json"
+            api_arguments+=(--baseline "$version=$api_baselines/$version.json")
+          done
+          node scripts/check-api-compat.mjs --current api/api-v1.json \
+            "${api_arguments[@]}" --report "$RUNNER_TEMP/api-compatibility-v1.json"
+          cmp api/compatibility-v1.json "$RUNNER_TEMP/api-compatibility-v1.json"
           test -f LICENSE-MIT && test -f LICENSE-APACHE
           test -f SECURITY.md && test -f THIRD_PARTY.md && test -f COMPATIBILITY.md
           for heading in 新功能 修复内容 兼容性与平台 安装示例 升级方式 制品与校验 第三方依赖 已知限制; do
