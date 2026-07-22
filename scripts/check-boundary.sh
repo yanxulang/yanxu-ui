@@ -1,15 +1,7 @@
 #!/bin/sh
 set -eu
 
-workspace=$PWD
-if test -d "$workspace/yanxu-ui/src"; then
-  root="$workspace/yanxu-ui"
-elif test -d "$workspace/src" && test -f "$workspace/言序.toml"; then
-  root="$workspace"
-else
-  echo "请从言序多仓工作区根目录或 yanxu-ui 仓库根目录运行" >&2
-  exit 1
-fi
+root=$(dirname "$0")/..
 
 for token in Win32 HWND AppKit NSWindow Cocoa Wayland X11 Direct2D DirectWrite CoreGraphics Metal; do
   if grep -RIn --include='*.yx' "$token" "$root/src"; then
@@ -18,7 +10,7 @@ for token in Win32 HWND AppKit NSWindow Cocoa Wayland X11 Direct2D DirectWrite C
   fi
 done
 
-test "$(find "$root/examples" -type f -name '*.yx' | wc -l | tr -d ' ')" -eq 14
+test "$(find "$root/examples" -type f -name '*.yx' | wc -l | tr -d ' ')" -eq 15
 test "$(grep -c '^公 类 ' "$root/src/主.yx")" -ge 16
 grep -F '引「包:言台」' "$root/src/主.yx" >/dev/null
 grep -F '引「包:言据」' "$root/src/样式/配置.yx" >/dev/null
