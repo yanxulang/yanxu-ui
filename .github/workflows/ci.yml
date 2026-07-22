@@ -105,7 +105,10 @@ jobs:
           "$core" 字节 integration/数据视图.yx
           "$core" 字节 integration/文本视图.yx
           "$core" 字节 integration/生命周期.yx
-          "$core" 字节 integration/生命周期压力.yx
+          YANXU_MAX_STEPS=100000000 "$core" 字节 integration/生命周期压力.yx
+          "$core" 字节 integration/滚动无障碍.yx
+          "$core" 字节 integration/无障碍全控件.yx
+          YANXU_MAX_STEPS=100000000 "$core" 字节 integration/交互长序列.yx
       - name: 构建正式包入口与全部公开示例
         shell: bash
         run: |
@@ -159,11 +162,13 @@ jobs:
             xvfb-run -a "$core" 字节 integration/叠层窗口.yx
             xvfb-run -a "$core" 字节 integration/菜单窗口.yx
             xvfb-run -a "$core" 字节 integration/动画窗口.yx
+            xvfb-run -a "$core" 字节 integration/生产后端窗口.yx
           else
             "$core" 字节 integration/真实窗口.yx
             "$core" 字节 integration/叠层窗口.yx
             "$core" 字节 integration/菜单窗口.yx
             "$core" 字节 integration/动画窗口.yx
+            "$core" 字节 integration/生产后端窗口.yx
           fi
       - name: API 漂移、文档与平台边界门禁
         shell: bash
@@ -242,10 +247,14 @@ jobs:
           "$core" 字节 integration/数据视图.yx
           "$core" 字节 integration/文本视图.yx
           "$core" 字节 integration/生命周期.yx
-          "$core" 字节 integration/生命周期压力.yx
+          YANXU_MAX_STEPS=100000000 "$core" 字节 integration/生命周期压力.yx
+          "$core" 字节 integration/滚动无障碍.yx
+          "$core" 字节 integration/无障碍全控件.yx
+          YANXU_MAX_STEPS=100000000 "$core" 字节 integration/交互长序列.yx
           xvfb-run -a "$core" 字节 integration/叠层窗口.yx
           xvfb-run -a "$core" 字节 integration/菜单窗口.yx
           xvfb-run -a "$core" 字节 integration/动画窗口.yx
+          xvfb-run -a "$core" 字节 integration/生产后端窗口.yx
           "$core" 编 . --release -o "$RUNNER_TEMP/yanxu-ui.yxb"
           test -s "$RUNNER_TEMP/yanxu-ui.yxb"
 
@@ -302,9 +311,10 @@ jobs:
           test -f LICENSE-MIT && test -f LICENSE-APACHE
           test -f SECURITY.md && test -f THIRD_PARTY.md && test -f COMPATIBILITY.md
           for heading in 新功能 修复内容 兼容性与平台 安装示例 升级方式 制品与校验 第三方依赖 已知限制; do
-            grep -F "## $heading" docs/RELEASE_NOTES_0.7.0.md >/dev/null
+            grep -F "## $heading" docs/RELEASE_NOTES_0.8.0.md >/dev/null
           done
           test -f docs/ACCESSIBILITY.md
+          test -f docs/PRODUCTION_VALIDATION.md
           test "$(grep -c '^言台 = .*修订 = "v1.0.0"' 言序.toml)" -eq 1
           grep -E '^言据 = .*修订 = "[0-9a-f]{40}"' 言序.toml >/dev/null
           blocked="$(printf 'co%s' 'dex')"
@@ -329,7 +339,7 @@ jobs:
             x86_64-apple-darwin aarch64-apple-darwin
             x86_64-pc-windows-msvc aarch64-pc-windows-msvc
           )
-          stage="$RUNNER_TEMP/yanxu-ui-0.7.0"
+          stage="$RUNNER_TEMP/yanxu-ui-0.8.0"
           mkdir -p "$stage/locks"
           cp -R .github src api benchmarks docs examples integration tests scripts "$stage/"
           cp 言序.toml 言序.lock README.md CHANGELOG.md COMPATIBILITY.md \
@@ -355,20 +365,20 @@ jobs:
             printf '%s  %s\n' "$checksum" '自动关闭冒烟.yxb' \
               > "$stage/build/targets/$target/自动关闭冒烟.yxb.sha256"
           done
-          archive="$GITHUB_WORKSPACE/yanxu-ui-0.7.0-six-targets.tar.gz"
+          archive="$GITHUB_WORKSPACE/yanxu-ui-0.8.0-six-targets.tar.gz"
           tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner \
-            -C "$RUNNER_TEMP" -czf "$archive" yanxu-ui-0.7.0
+            -C "$RUNNER_TEMP" -czf "$archive" yanxu-ui-0.8.0
           checksum=$(sha256sum "$archive" | awk '{print $1}')
           printf '%s  %s\n' "$checksum" "$(basename "$archive")" \
-            > yanxu-ui-0.7.0-six-targets.sha256
-          cp 言序.toml yanxu-ui-0.7.0.toml
+            > yanxu-ui-0.8.0-six-targets.sha256
+          cp 言序.toml yanxu-ui-0.8.0.toml
           cp api/api-v1.json api-v1.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: yanxu-ui-six-targets
           path: |
-            yanxu-ui-0.7.0-six-targets.tar.gz
-            yanxu-ui-0.7.0-six-targets.sha256
-            yanxu-ui-0.7.0.toml
+            yanxu-ui-0.8.0-six-targets.tar.gz
+            yanxu-ui-0.8.0-six-targets.sha256
+            yanxu-ui-0.8.0.toml
             api-v1.json
           if-no-files-found: error

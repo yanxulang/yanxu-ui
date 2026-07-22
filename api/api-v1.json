@@ -3602,6 +3602,35 @@
           "result": "任意",
           "signature": "法（）：任意",
           "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "语义",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
+          "static": false
         }
       ],
       "name": "滚动容器",
@@ -3669,6 +3698,71 @@
           "async": false,
           "documentation": "",
           "kind": "method",
+          "name": "项目数量",
+          "parameters": [],
+          "result": "数",
+          "signature": "法（）：数",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "行内容",
+          "parameters": [
+            {
+              "name": "序",
+              "type": "数"
+            }
+          ],
+          "result": "文",
+          "signature": "法（数）：文",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "选择",
+          "parameters": [
+            {
+              "name": "序",
+              "type": "数"
+            }
+          ],
+          "result": "理",
+          "signature": "法（数）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "取选择",
+          "parameters": [],
+          "result": "数",
+          "signature": "法（）：数",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "滚动到",
+          "parameters": [
+            {
+              "name": "新值",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（任意）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
           "name": "测量",
           "parameters": [
             {
@@ -3712,6 +3806,50 @@
           ],
           "result": "任意",
           "signature": "法（任意，典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "查找编号",
+          "parameters": [
+            {
+              "name": "编号值",
+              "type": "数"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（数）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "语义",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
           "static": false
         }
       ],
@@ -3767,6 +3905,31 @@
           ],
           "result": "任意",
           "signature": "法（任意，文，典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "选择页",
+          "parameters": [
+            {
+              "name": "序",
+              "type": "数"
+            }
+          ],
+          "result": "理",
+          "signature": "法（数）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "取当前页",
+          "parameters": [],
+          "result": "数",
+          "signature": "法（）：数",
           "static": false
         },
         {
@@ -3847,6 +4010,50 @@
           "result": "任意",
           "signature": "法（任意，典）：任意",
           "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "查找编号",
+          "parameters": [
+            {
+              "name": "编号值",
+              "type": "数"
+            }
+          ],
+          "result": "任意",
+          "signature": "法（数）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "语义",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
+          "static": false
         }
       ],
       "name": "标签页",
@@ -3908,6 +4115,31 @@
           ],
           "result": "任意",
           "signature": "法（任意，文，典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "比例值",
+          "parameters": [
+            {
+              "name": "新值",
+              "type": "数"
+            }
+          ],
+          "result": "理",
+          "signature": "法（数）：理",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "取比例",
+          "parameters": [],
+          "result": "数",
+          "signature": "法（）：数",
           "static": false
         },
         {
@@ -3976,6 +4208,35 @@
           ],
           "result": "任意",
           "signature": "法（任意，典）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "语义",
+          "parameters": [],
+          "result": "任意",
+          "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
           "static": false
         }
       ],
@@ -4599,6 +4860,25 @@
           "parameters": [],
           "result": "任意",
           "signature": "法（）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "执行无障碍动作",
+          "parameters": [
+            {
+              "name": "动作名",
+              "type": "文"
+            },
+            {
+              "name": "参数",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（文，任意）：理",
           "static": false
         }
       ],
@@ -6211,6 +6491,21 @@
           ],
           "result": "任意",
           "signature": "法（列<数>）：任意",
+          "static": false
+        },
+        {
+          "async": false,
+          "documentation": "",
+          "kind": "method",
+          "name": "滚动到",
+          "parameters": [
+            {
+              "name": "新值",
+              "type": "任意"
+            }
+          ],
+          "result": "理",
+          "signature": "法（任意）：理",
           "static": false
         },
         {
