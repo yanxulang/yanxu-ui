@@ -37,7 +37,7 @@
   "lock": {
     "target": "aarch64-apple-darwin",
     "generator": "1.1.9",
-    "sha256": "b0f5ca8eafd42be5662b6bddaeb7df2cae9f6b28c145c45882d27cff96c990cd"
+    "sha256": "a8b8bf7723d38a4b334dee6a10dcbfce40fb68316e3670dd38ef74465fc52c3f"
   },
   "sourcePackageImports": [
     "言据",

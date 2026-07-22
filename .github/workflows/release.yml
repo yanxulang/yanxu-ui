@@ -29,12 +29,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           CI_RUN_ID: ${{ inputs.ci_run_id }}
           TAG: ${{ inputs.tag }}
-          EXPECTED_TAG: v0.8.0
+          EXPECTED_TAG: v0.9.0
         shell: bash
         run: |
           set -euo pipefail
           test "$TAG" = "$EXPECTED_TAG"
-          grep -Fx '版本 = "0.8.0"' 言序.toml
+          grep -Fx '版本 = "0.9.0"' 言序.toml
           test "$(gh run view "$CI_RUN_ID" --json conclusion --jq .conclusion)" = success
           test "$(gh run view "$CI_RUN_ID" --json workflowName --jq .workflowName)" = CI
           test "$(gh run view "$CI_RUN_ID" --json headSha --jq .headSha)" = "$(git rev-list -n 1 "$TAG")"
@@ -42,13 +42,19 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           CI_RUN_ID: ${{ inputs.ci_run_id }}
+          TAG: ${{ inputs.tag }}
         shell: bash
         run: |
           set -euo pipefail
           gh run download "$CI_RUN_ID" --name yanxu-ui-six-targets --dir release
-          expected=$(awk '{print $1}' release/yanxu-ui-0.8.0-six-targets.sha256)
-          actual=$(sha256sum release/yanxu-ui-0.8.0-six-targets.tar.gz | awk '{print $1}')
+          gh run download "$CI_RUN_ID" --name release-candidate-report --dir release-report
+          expected=$(awk '{print $1}' release/yanxu-ui-0.9.0-six-targets.sha256)
+          actual=$(sha256sum release/yanxu-ui-0.9.0-six-targets.tar.gz | awk '{print $1}')
+          tag_sha=$(git rev-list -n 1 "$TAG")
           test "$expected" = "$actual"
+          grep -Fx 'version=0.9.0' release-report/release-candidate-report.txt
+          grep -Fx "source_sha=$tag_sha" release-report/release-candidate-report.txt
+          grep -Fx "archive_sha256=$actual" release-report/release-candidate-report.txt
       - name: 发布 GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -57,9 +63,9 @@ jobs:
         run: |
           set -euo pipefail
           gh release create "$TAG" \
-            release/yanxu-ui-0.8.0-six-targets.tar.gz \
-            release/yanxu-ui-0.8.0-six-targets.sha256 \
-            release/yanxu-ui-0.8.0.toml \
+            release/yanxu-ui-0.9.0-six-targets.tar.gz \
+            release/yanxu-ui-0.9.0-six-targets.sha256 \
+            release/yanxu-ui-0.9.0.toml \
             release/api-v1.json \
-            --verify-tag --title "言界 0.8.0" \
-            --notes-file docs/RELEASE_NOTES_0.8.0.md
+            --verify-tag --title "言界 0.9.0" \
+            --notes-file docs/RELEASE_NOTES_0.9.0.md
