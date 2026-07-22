@@ -1,10 +1,10 @@
 lock_version = 2
 manifest_checksum = "0ee95916bf68f54f347d2ec3190bff974e045c861e2c2c39ef366d9dc3104c58"
 target = "aarch64-apple-darwin"
-generator = "1.1.9"
+generator = "1.1.20"
 
 [root_dependencies]
-"言界" = "yanxu-ui@0.5.0#a5b4b144f221-2029f866a1deff3e"
+"言界" = "yanxu-ui@0.5.0#a5b4b144f221-b361f0bd4d7f7e59"
 
 [root_dev_dependencies]
 
@@ -32,11 +32,11 @@ checksum = "4ba2a55db0828178d67c555500844bc2e03856bef79aeddae96bf0d3bfec6fdb"
 size = 6129760
 
 [[package]]
-id = "yanxu-ui@0.5.0#a5b4b144f221-2029f866a1deff3e"
+id = "yanxu-ui@0.5.0#a5b4b144f221-b361f0bd4d7f7e59"
 name = "yanxu-ui"
 version = "0.5.0"
 source = "path:.."
-checksum = "2029f866a1deff3e4ccf31dde980c071525ce112ec9e46b32506676ab670c70e"
+checksum = "b361f0bd4d7f7e5953fbd173c54e519d47185d97a81b95e0f8ccd898b2722def"
 entry = "src/主.yx"
 target = "aarch64-apple-darwin"
 minimum_yanxu = ">=1.1.9"
