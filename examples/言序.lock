@@ -4,7 +4,7 @@ target = "aarch64-apple-darwin"
 generator = "1.1.9"
 
 [root_dependencies]
-"言界" = "yanxu-ui@0.6.0#a5b4b144f221-c3b07482fd2ad537"
+"言界" = "yanxu-ui@0.6.0#a5b4b144f221-f73f0e48aee00396"
 
 [root_dev_dependencies]
 
@@ -32,11 +32,11 @@ checksum = "4ba2a55db0828178d67c555500844bc2e03856bef79aeddae96bf0d3bfec6fdb"
 size = 6129760
 
 [[package]]
-id = "yanxu-ui@0.6.0#a5b4b144f221-c3b07482fd2ad537"
+id = "yanxu-ui@0.6.0#a5b4b144f221-f73f0e48aee00396"
 name = "yanxu-ui"
 version = "0.6.0"
 source = "path:.."
-checksum = "c3b07482fd2ad537d2c51edeee43a81d1c142fa4d1c8e1eab809115e3d16f723"
+checksum = "f73f0e48aee00396698c5f6893c9fc4990fbf0cc500989c1926c084924e72bd9"
 entry = "src/主.yx"
 target = "aarch64-apple-darwin"
 minimum_yanxu = ">=1.1.9"
