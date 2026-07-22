@@ -61,6 +61,7 @@
 - Unicode 多行精确选区、按行高亮和有界滚动；有界增量数据源、虚拟列表、缓存淘汰、加载／失败
   状态和逐行无障碍选择；
 - 可观察状态、数据绑定、单调时间动画值及带焦点/动作回传的原生无障碍语义树；
+- 帧呈现反馈驱动的有界动画、单槽背压、版本化运行诊断和固定运行器性能预算；
 - 言据优先的主题配置和等价 JSON 兼容入口。
 
 ## 两条 GUI 路线
@@ -82,6 +83,7 @@
 - [完整表单指南](docs/FORMS.md)
 - [叠层与菜单指南](docs/MENUS.md)
 - [文本与数据视图](docs/DATA_VIEWS.md)
+- [动画、帧反馈与运行诊断](docs/ANIMATION_AND_DIAGNOSTICS.md)
 - [样式与配置](docs/THEMING.md)
 - [示例索引](docs/EXAMPLES.md)
 - [兼容性](COMPATIBILITY.md)

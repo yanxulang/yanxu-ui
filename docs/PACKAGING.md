@@ -58,3 +58,22 @@ yanbao 构 --release --bundle
 正式 Release 工作流不重新编译。它只接受与标签同一提交的成功 CI run，下载已经验收的
 汇总候选，复核 SHA-256 后发布。因此标签、源码、API 快照、六目标锁与 Release 制品具有
 同一提交来源。
+
+## 性能报告
+
+Linux x86-64 专用作业使用言序 1.1.20 的 Release 宿主运行
+`benchmarks/性能预算.yx`。脚本预热并自动校准后记录 9 轮样本，以中位数和 MAD 同时判定，
+原始 JSON 作为`performance-budget`制品保留 14 天。该作业成功后汇总作业才会生成六目标
+候选归档。
+
+本机建立同版本 Release 基线：
+
+```sh
+cargo build --manifest-path yanxu-language-new/Cargo.toml --release --locked --bin yanxu
+YANXU_MAX_STEPS=1000000000 \
+  yanxu-language-new/target/release/yanxu 字节 yanxu-ui/benchmarks/性能预算.yx \
+  > /tmp/yanxu-ui-performance-budget.json
+```
+
+跨机器绝对值不能直接解释为回归。预算变更需在同一固定运行器上保存前后报告，且性能结果
+不能代替语义、真实窗口、压力、资源归零和六目标构建门禁。
