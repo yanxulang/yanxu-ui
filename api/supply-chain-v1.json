@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "package": "yanxu-ui",
+  "directDependencies": [
+    {
+      "name": "言据",
+      "version": "1.1.2",
+      "source": "git:https://github.com/yanxulang/yanju.git",
+      "revision": "765d9dd623db901a3e71aa4759dbcd77563cb3a9",
+      "checksum": "224c31578349433870be11aa599edd1072b9651e0d659819f4ab9a971064a5c0"
+    },
+    {
+      "name": "yanxu-platform",
+      "version": "1.0.0",
+      "source": "git:https://github.com/yanxulang/yanxu-platform.git",
+      "revision": "9b6bce794a2e23fba04340f762e3d8f49a2724ff",
+      "checksum": "c0ebb9773aa5a4d9e889213ef085d9f75f5959f7cc5b63aa7c60f4e83f5df0ad",
+      "nativeAbi": 2
+    }
+  ],
+  "manifestDependencies": [
+    {
+      "name": "yanxu-platform",
+      "包": "yanxu-platform",
+      "git": "https://github.com/yanxulang/yanxu-platform.git",
+      "修订": "v1.0.0",
+      "版": "^1.0"
+    },
+    {
+      "name": "言据",
+      "包": "言据",
+      "git": "https://github.com/yanxulang/yanju.git",
+      "修订": "765d9dd623db901a3e71aa4759dbcd77563cb3a9",
+      "版": "^1.1"
+    }
+  ],
+  "lock": {
+    "target": "aarch64-apple-darwin",
+    "generator": "1.1.9",
+    "sha256": "b0f5ca8eafd42be5662b6bddaeb7df2cae9f6b28c145c45882d27cff96c990cd"
+  },
+  "sourcePackageImports": [
+    "言据",
+    "言台"
+  ],
+  "licenses": [
+    {
+      "identifier": "Apache-2.0",
+      "file": "LICENSE-APACHE",
+      "sha256": "f2afd2180c83fc2b9faad741599dfe2095fd2557df2e479873bf87af62cf111d"
+    },
+    {
+      "identifier": "MIT",
+      "file": "LICENSE-MIT",
+      "sha256": "5242aa113dc39187679d26ca5cf2d93d84e2c7491c0e9adafbb7f47652f76b1c"
+    }
+  ],
+  "githubActions": [
+    "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0",
+    "actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c",
+    "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
+  ],
+  "ownedNativeLibraries": []
+}
