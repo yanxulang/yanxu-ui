@@ -397,3 +397,27 @@ jobs:
             yanxu-ui-0.8.0.toml
             api-v1.json
           if-no-files-found: error
+
+  candidate-drill:
+    name: 发布候选演练
+    needs: [assemble]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: yanxu-ui-six-targets
+          path: ${{ runner.temp }}/candidate
+      - name: 复核可发布候选
+        shell: bash
+        env:
+          CANDIDATE_DIR: ${{ runner.temp }}/candidate
+          REPORT: ${{ runner.temp }}/release-candidate-report.txt
+          SOURCE_SHA: ${{ github.sha }}
+        run: bash scripts/verify-release-candidate.sh
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release-candidate-report
+          path: ${{ runner.temp }}/release-candidate-report.txt
+          if-no-files-found: error
+          retention-days: 14
