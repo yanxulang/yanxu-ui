@@ -4,7 +4,7 @@
 [言台](https://github.com/yanxulang/yanxu-platform) 获取窗口、输入、文字、图片、系统服务和
 整帧绘制原语；按钮、输入框、列表、标签页等高级控件全部由言序实现。
 
-当前版本为 `0.8.0`，源码加载最低要求言序 `1.1.9`、言台 `1.0.x` 和言据 `1.1.x`。
+当前版本为 `0.9.0`，源码加载最低要求言序 `1.1.9`、言台 `1.0.x` 和言据 `1.1.x`。
 正式 YXB 与 Bundle 使用经过回放验收的言序 `1.1.20` 构建；言包、言据和既有
 `yanxu-gui` 无需升级或迁移。
 
@@ -14,7 +14,7 @@
 
 ```toml
 [依赖]
-言界 = { 包 = "yanxu-ui", git = "https://github.com/yanxulang/yanxu-ui.git", 修订 = "v0.8.0", 版 = "^0.8" }
+言界 = { 包 = "yanxu-ui", git = "https://github.com/yanxulang/yanxu-ui.git", 修订 = "v0.9.0", 版 = "^0.9" }
 
 [权限]
 图形界面 = true
@@ -64,6 +64,7 @@
 - 帧呈现反馈驱动的有界动画、单槽背压、版本化运行诊断和固定运行器性能预算；
 - 言台资源配额协商、托管计时器与图片、单向窗口／应用关闭、结构化关闭报告和资源归零压力门禁；
 - 六目标原生运行、全控件无障碍审计、长交互序列、资源归零和候选重放生产门禁；
+- 1.0 候选 API 冻结、0.1.0–0.8.0 机器兼容证明、供应链证据和独立发布候选演练；
 - 言据优先的主题配置和等价 JSON 兼容入口。
 
 ## 两条 GUI 路线
@@ -90,6 +91,8 @@
 - [样式与配置](docs/THEMING.md)
 - [示例索引](docs/EXAMPLES.md)
 - [兼容性](COMPATIBILITY.md)
+- [0.x–1.0 API 兼容证明](docs/COMPATIBILITY_PROOF.md)
+- [从 0.x 升级到 1.0](docs/MIGRATION_0_X_TO_1_0.md)
 - [安全与权限](SECURITY.md)
 - [构建、Bundle 与发布](docs/PACKAGING.md)
 - [生产验收](docs/PRODUCTION_VALIDATION.md)

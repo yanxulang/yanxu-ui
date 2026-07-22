@@ -1,0 +1,114 @@
+{
+  "format": 1,
+  "current": {
+    "file": "api/api-v1.json",
+    "sha256": "60596fd0f1c6e4a89cb44acd6109fe40945d386fa617d8f562ee8e8486c1a228",
+    "declarations": 30,
+    "classes": 23,
+    "functions": 7,
+    "fields": 125,
+    "methods": 375
+  },
+  "baselines": [
+    {
+      "version": "0.1.0",
+      "sha256": "a36cad024d7553541a015a068a21725162cfa309a121d9463a4be6bd88124004",
+      "compatible": true,
+      "declarations": 23,
+      "classes": 16,
+      "functions": 7,
+      "fields": 67,
+      "methods": 168
+    },
+    {
+      "version": "0.1.1",
+      "sha256": "a36cad024d7553541a015a068a21725162cfa309a121d9463a4be6bd88124004",
+      "compatible": true,
+      "declarations": 23,
+      "classes": 16,
+      "functions": 7,
+      "fields": 67,
+      "methods": 168
+    },
+    {
+      "version": "0.1.2",
+      "sha256": "a36cad024d7553541a015a068a21725162cfa309a121d9463a4be6bd88124004",
+      "compatible": true,
+      "declarations": 23,
+      "classes": 16,
+      "functions": 7,
+      "fields": 67,
+      "methods": 168
+    },
+    {
+      "version": "0.2.0",
+      "sha256": "72d43e71da5bccf1cd73cdb3ffc4a5d4ab2c73d8d0703205a44cbedeca90d719",
+      "compatible": true,
+      "declarations": 23,
+      "classes": 16,
+      "functions": 7,
+      "fields": 69,
+      "methods": 175
+    },
+    {
+      "version": "0.3.0",
+      "sha256": "bfa060693efcf6b1abd91552ac4ac29605c9dfba3489e0c57daf0b1c26c829b0",
+      "compatible": true,
+      "declarations": 29,
+      "classes": 22,
+      "functions": 7,
+      "fields": 99,
+      "methods": 274
+    },
+    {
+      "version": "0.4.0",
+      "sha256": "06525d6473dc9fa279946cc07cd19cd226181be48c7598565a0e0f106a46458f",
+      "compatible": true,
+      "declarations": 29,
+      "classes": 22,
+      "functions": 7,
+      "fields": 106,
+      "methods": 317
+    },
+    {
+      "version": "0.5.0",
+      "sha256": "3d26125c2533739f249d5d8d05c281ae93f314d9ff08d2e2c4a8f525b34b1e73",
+      "compatible": true,
+      "declarations": 30,
+      "classes": 23,
+      "functions": 7,
+      "fields": 124,
+      "methods": 342
+    },
+    {
+      "version": "0.6.0",
+      "sha256": "1b202ceaca325fbaa1d7d8110f0d8fbd85c035b1f891fa019dd93df3d3ee7335",
+      "compatible": true,
+      "declarations": 30,
+      "classes": 23,
+      "functions": 7,
+      "fields": 125,
+      "methods": 346
+    },
+    {
+      "version": "0.7.0",
+      "sha256": "bbed024e364ebfe8c8eb0313548a818ad9711645f9a19abc7004f67e2b8df4d5",
+      "compatible": true,
+      "declarations": 30,
+      "classes": 23,
+      "functions": 7,
+      "fields": 125,
+      "methods": 354
+    },
+    {
+      "version": "0.8.0",
+      "sha256": "60596fd0f1c6e4a89cb44acd6109fe40945d386fa617d8f562ee8e8486c1a228",
+      "compatible": true,
+      "declarations": 30,
+      "classes": 23,
+      "functions": 7,
+      "fields": 125,
+      "methods": 375
+    }
+  ]
+}
