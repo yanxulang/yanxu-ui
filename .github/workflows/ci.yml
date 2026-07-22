@@ -105,7 +105,7 @@ jobs:
           "$core" 字节 integration/数据视图.yx
           "$core" 字节 integration/文本视图.yx
           "$core" 字节 integration/生命周期.yx
-          "$core" 字节 integration/生命周期压力.yx
+          YANXU_MAX_STEPS=100000000 "$core" 字节 integration/生命周期压力.yx
           "$core" 字节 integration/滚动无障碍.yx
           "$core" 字节 integration/无障碍全控件.yx
           YANXU_MAX_STEPS=100000000 "$core" 字节 integration/交互长序列.yx
@@ -247,7 +247,7 @@ jobs:
           "$core" 字节 integration/数据视图.yx
           "$core" 字节 integration/文本视图.yx
           "$core" 字节 integration/生命周期.yx
-          "$core" 字节 integration/生命周期压力.yx
+          YANXU_MAX_STEPS=100000000 "$core" 字节 integration/生命周期压力.yx
           "$core" 字节 integration/滚动无障碍.yx
           "$core" 字节 integration/无障碍全控件.yx
           YANXU_MAX_STEPS=100000000 "$core" 字节 integration/交互长序列.yx
