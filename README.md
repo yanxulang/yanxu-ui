@@ -90,6 +90,8 @@
 - [样式与配置](docs/THEMING.md)
 - [示例索引](docs/EXAMPLES.md)
 - [兼容性](COMPATIBILITY.md)
+- [0.x–1.0 API 兼容证明](docs/COMPATIBILITY_PROOF.md)
+- [从 0.x 升级到 1.0](docs/MIGRATION_0_X_TO_1_0.md)
 - [安全与权限](SECURITY.md)
 - [构建、Bundle 与发布](docs/PACKAGING.md)
 - [生产验收](docs/PRODUCTION_VALIDATION.md)
