@@ -69,7 +69,7 @@ test "$(grep -Ec "^$prefix/locks/[^/]+/[^/]+$" "$listing")" -eq 6
 test "$(grep -Ec "^$prefix/locks/[^/]+/examples/[^/]+$" "$listing")" -eq 6
 test "$(grep -Ec "^$prefix/build/targets/[^/]+/[^/]+$" "$listing")" -eq 18
 
-for file in 言序.toml api/api-v1.json api/api-v1.freeze.json api/compatibility-v1.json api/supply-chain-v1.json; do
+for file in 言序.toml SUPPORT.md api/api-v1.json api/api-v1.freeze.json api/compatibility-v1.json api/supply-chain-v1.json api/release-contract-v1.json; do
   tar -xOf "$archive" "$prefix/$file" > "$temporary/$(basename "$file")"
   cmp "$root/$file" "$temporary/$(basename "$file")"
 done
@@ -83,10 +83,12 @@ mkdir -p "$(dirname "$report")"
   printf 'manifest_sha256=%s\napi_sha256=%s\n' \
     "$manifest_sha" \
     "$(sha256_file "$api")"
-  printf 'api_freeze_sha256=%s\ncompatibility_sha256=%s\nsupply_chain_sha256=%s\n' \
+  printf 'api_freeze_sha256=%s\ncompatibility_sha256=%s\nsupply_chain_sha256=%s\nrelease_contract_sha256=%s\nsupport_policy_sha256=%s\n' \
     "$(sha256_file "$root/api/api-v1.freeze.json")" \
     "$(sha256_file "$root/api/compatibility-v1.json")" \
-    "$(sha256_file "$root/api/supply-chain-v1.json")"
+    "$(sha256_file "$root/api/supply-chain-v1.json")" \
+    "$(sha256_file "$root/api/release-contract-v1.json")" \
+    "$(sha256_file "$root/SUPPORT.md")"
 } > "$report"
 
 for target in \
